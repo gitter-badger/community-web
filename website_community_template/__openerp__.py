@@ -29,6 +29,7 @@
     'depends': [
         'auth_signup',
         'website',
+        'website_marketplace'
     ],
     'data': [
         'views/assets.xml',

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- JS includes -->
+    	<template id="javascripts_compiled" inherit_id="website.assets_frontend">
+    		<xpath expr="//script[@src='/website/static/src/js/website.snippets.animation.js']" position="after">
+                <script src="/website_marketplace/static/src/js/views/website_community_template.new_announcement.js"></script>
+                <script src="/website_marketplace/static/src/js/views/website_community_template.edit_announcement.js"></script>
+                <script src="/website_marketplace/static/src/js/views/website_community_template.view_announcement.js"></script>
+    		</xpath>
+    	</template>
+
+    </data>
+</openerp>

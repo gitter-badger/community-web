@@ -40,6 +40,7 @@ Website Marketplace
         'data/menu.xml',
         'data/marketplace_announcement_category.xml',
         'data/users.xml',
+        'views/assets.xml',
         'views/templates/mp_search.xml',
         'views/templates/mp_search_form.xml',
         'views/templates/mp_single_item.xml',

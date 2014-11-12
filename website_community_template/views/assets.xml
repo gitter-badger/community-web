@@ -32,9 +32,6 @@
                     openerp.website.theme.views = {};
                 </script>
                 <script src="/website_community_template/static/src/js/views/layout.js"></script>
-                <script src="/website_community_template/static/src/js/views/website_community_template.new_announcement.js"></script>
-                <script src="/website_community_template/static/src/js/views/website_community_template.edit_announcement.js"></script>
-                <script src="/website_community_template/static/src/js/views/website_community_template.view_announcement.js"></script>
                 <script src="/website_community_template/static/src/js/views/website_community_template.member_list_view.js"></script>
                 <script src="/website_community_template/static/src/js/views/website_community_template.homepage.js"></script>
                 <script src="/website_community_template/static/src/js/main.js"></script>
