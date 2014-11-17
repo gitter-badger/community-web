@@ -1,7 +1,0 @@
-@import "wbb/mixins";
-@import "wbb/core";
-
-
-@mixin wbb {
-	@include wbb-core;
-}
