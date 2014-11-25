@@ -34,8 +34,8 @@
                     </div>
                 </div>
                 <form class="form-horizontal" method="post" enctype="multipart/form-data">
-                    <t t-call="website_community_template.profile_edit_general"/>
-                    <t t-call="website_community_template.profile_edit_resources"/>
+                    <t t-call="website_membership_users.profile_edit_general"/>
+                    <t t-call="website_membership_users.profile_edit_resources"/>
                     <t t-call="website_community_template.register_membership"/>
                     <section class="bg-success pt64 pb64">
                         <div class="container">
