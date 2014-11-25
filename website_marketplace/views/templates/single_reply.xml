@@ -161,7 +161,7 @@
                                             <t t-if="(reply.is_dispute and reply.want_cancel_user and reply.want_cancel_announcer) or reply.is_moderator">
                                                 <a t-attf-href="/marketplace/reply/#{reply.id}/accepted_cancel" class="btn btn-primary" role="button">Cancel</a>
                                             </t>
-                                            <t t-if="reply.is_receiver">
+                                            <t t-if="reply.is_sender">
                                                 <a t-attf-href="/marketplace/reply/#{reply.id}/invoice" class="btn btn-primary" role="button">Invoice</a>
                                             </t>
                                         </t>
@@ -169,25 +169,25 @@
                                             <t t-if="(reply.is_dispute and reply.want_cancel_user and reply.want_cancel_announcer) or reply.is_moderator">
                                                 <a t-attf-href="/marketplace/reply/#{reply.id}/invoiced_cancel" class="btn btn-primary" role="button">Cancel</a>
                                             </t>
-                                            <t t-if="reply.is_sender">
+                                            <t t-if="reply.is_receiver">
                                                 <a t-attf-href="/marketplace/reply/#{reply.id}/pay" class="btn btn-primary" role="button">Pay</a>
                                             </t>
                                         </t>
                                         <t t-if="reply.state == 'confirm'">
-                                            <t t-if="reply.is_receiver">
+                                            <t t-if="reply.is_sender">
                                                 <a t-attf-href="/marketplace/reply/#{reply.id}/confirm" class="btn btn-primary" role="button">Payment received</a>
                                             </t>
                                         </t>
                                         <t t-if="reply.state == 'paid'">
-                                            <t t-if="reply.is_receiver">
+                                            <t t-if="reply.is_sender">
                                                 <a t-attf-href="/marketplace/reply/#{reply.id}/refund" class="btn btn-primary" role="button">Refund</a>
                                             </t>
                                         </t>
                                         <t t-if="reply.state == 'confirm_refund'">
-                                            <t t-if="reply.is_receiver">
+                                            <t t-if="reply.is_sender">
                                                 <a t-attf-href="/marketplace/reply/#{reply.id}/confirmrefund_paid" class="btn btn-primary" role="button">Cancel</a>
                                             </t>
-                                            <t t-if="reply.is_sender">
+                                            <t t-if="reply.is_receiver">
                                                 <a t-attf-href="/marketplace/reply/#{reply.id}/confirmrefund_cancel" class="btn btn-primary" role="button">Payment received</a>
                                             </t>
                                         </t>

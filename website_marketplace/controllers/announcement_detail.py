@@ -810,8 +810,10 @@ class AnnouncementController(http.Controller):
         else:
             # Create and publish proposition
             id = proposition_pool.create(cr, uid, vals, context=context)
-            # workflow.trg_validate(uid, 'marketplace.proposition', id,
-            # 'proposition_draft_open', cr)
+            workflow.trg_validate(
+                uid, 'marketplace.proposition', id,
+                'proposition_draft_open', cr
+            )
 
     def _save_vote(
             self, cr, uid, registry, announcement,
@@ -1262,6 +1264,10 @@ class AnnouncementController(http.Controller):
         context.update({'from_new_announcement': True})
         res = self._parse_and_save_announcement(
             cr, uid, registry, announcement, post, context=context
+        )
+        workflow.trg_validate(
+            uid, 'marketplace.announcement', announcement.id,
+            'announcement_draft_open', cr
         )
         response = http.request.website.render(
             res['template_id'], res['response']
