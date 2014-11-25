@@ -25,11 +25,10 @@
     'version': '1.0',
     'description': """
         """,
-    'author': 'Author Name • WebByBrains <author@webbybrains.com>, Igor Krivonos <igor.krivonos@xpansa.com>',
+    'author': 'Author Name • WebByBrains <author@webbybrains.com>,'
+              ' Igor Krivonos <igor.krivonos@xpansa.com>',
     'depends': [
         'website',
     ],
     'installable': True
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

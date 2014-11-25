@@ -49,6 +49,7 @@ def strip_tags(html):
     s.feed(html)
     return s.get_data()
 
+
 def get_date_format(cr, uid, context):
     """ Return date format from locale of current user 
     to parse dates from forms. 
@@ -64,14 +65,18 @@ def get_date_format(cr, uid, context):
             return lang_params['date_format']
     return DEFAULT_SERVER_DATE_FORMAT
 
+
 def format_date(value, with_time=False):
     """ Convert UTC date to user locale format
     """
-    cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+    cr, uid, context, registry = request.cr, request.uid, \
+                                 request.context, request.registry
     if context is None:
         context = {}
-    user_date = datetime.strptime(value, with_time and DEFAULT_SERVER_DATETIME_FORMAT \
-        or DEFAULT_SERVER_DATE_FORMAT)
+    user_date = datetime.strptime(
+        value, with_time and
+        DEFAULT_SERVER_DATETIME_FORMAT or DEFAULT_SERVER_DATE_FORMAT
+    )
     if context and context.get('tz'):
         tz_name = context['tz']
     else:
@@ -100,7 +105,6 @@ def format_text(text, length=300):
     return text + ' '*(length - len(text))
 
 
-
 class MarketPlaceHome(AuthSignupHome):
 
     @http.route('/web/signup', type='http', auth='public', website=True)
@@ -115,7 +119,8 @@ class MarketPlaceHome(AuthSignupHome):
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
                 self.do_signup(qcontext)
-                return super(AuthSignupHome, self).web_login(redirect='/marketplace/register-part2')
+                return super(AuthSignupHome, self).\
+                    web_login(redirect='/marketplace/register-part2')
             except (SignupError, AssertionError), e:
                 qcontext['error'] = _(e.message)
 

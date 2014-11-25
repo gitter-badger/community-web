@@ -29,10 +29,12 @@ from openerp.addons.web import http
 from openerp.addons.web.controllers.main import content_disposition
 from openerp.addons.web.http import request
 from openerp.addons.website.controllers.main import Website as controllers
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
+from openerp.tools import \
+    DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 from openerp.tools.translate import _
 from openerp import workflow
-from openerp.addons.website_base_community.controllers.main import get_date_format, format_date
+from openerp.addons.website_base_community.controllers.main \
+    import get_date_format, format_date
 
 from attrdict import AttrDict
 
@@ -40,10 +42,10 @@ _logger = logging.getLogger(__name__)
 
 DEFAULT_COUNTRY = 'US'
 
-class announcement_controller(http.Controller):
 
-    
-    class save_annnouncement_parser():
+class AnnouncementController(http.Controller):
+
+    class SaveAnnnouncementParser():
         """ Class for parsing and validate save announcement request's params
         """
         def __init__(self, cr, uid, registry, context=None):
@@ -100,19 +102,27 @@ class announcement_controller(http.Controller):
             if post.get(param):
                 binary = post.get(param)
                 try:
-                    self.vals.update({attr: base64.encodestring(binary.read())})
+                    self.vals.update(
+                        {attr: base64.encodestring(binary.read())}
+                    )
                 except Exception, e:
                     self.error_message_list.append(unicode(e))
                     self.error_param_list.append(param)
 
         def __parse_m2o_param(self, post, param, attr, res_model, error_msg):
-            """ Process many2one value from post params and save it to vals dict
+            """
+            Process many2one value from post params and
+            save it to vals dict
             """
             if post.get(param):
                 model_id = post.get(param)
                 if model_id != 'None':
-                    res_id = self.registry.get(res_model).search(self.cr, self.uid, [('id', '=', model_id)], limit=1, context=self.context)
-                    res_id = (res_id[0] if len(res_id) else False) if type(res_id) is list else res_id
+                    res_id = self.registry.get(res_model).search(
+                        self.cr, self.uid, [('id', '=', model_id)],
+                        limit=1, context=self.context
+                    )
+                    res_id = (res_id[0] if len(res_id) else False) \
+                        if type(res_id) is list else res_id
                     if res_id:
                         self.vals.update({attr: res_id})
                     else:
@@ -122,7 +132,8 @@ class announcement_controller(http.Controller):
                     self.vals.update({attr: False})
 
         def __parse_o2m_param(self, post, param, attr, res_model):
-            """ Process one2many value from post params and save it to vals dict
+            """
+            Process one2many value from post params and save it to vals dict
             """
             if post.get(param):
                 many_value_list = list()
@@ -134,8 +145,12 @@ class announcement_controller(http.Controller):
                     except Exception:
                         continue
                     if value_id:
-                        res_id = self.registry.get(res_model).search(self.cr, self.uid, [('id', '=', value_id)], limit=1, context=self.context)
-                        res_id = (res_id[0] if len(res_id) else False) if type(res_id) is list else res_id
+                        res_id = self.registry.get(res_model).search(
+                            self.cr, self.uid, [('id', '=', value_id)],
+                            limit=1, context=self.context
+                        )
+                        res_id = (res_id[0] if len(res_id) else False) \
+                            if type(res_id) is list else res_id
                         if res_id:
                             many_value_list.append(res_id)
                 self.vals.update({attr: [(6, 0, many_value_list)]})
@@ -169,10 +184,23 @@ class announcement_controller(http.Controller):
             ]
 
             m2o_param_list = [
-                ('category_id', 'category_id', 'marketplace.announcement.category', 'There is no such category'),
-                ('country_id', 'country_id', 'res.country', 'There is no such country'),
-                ('state_id', 'state_id', 'res.country.state', 'There is no such state'),
-                ('uom_id', 'uom_id', 'product.uom', 'There is no such unit of measure'),
+                (
+                    'category_id', 'category_id',
+                    'marketplace.announcement.category',
+                    'There is no such category'
+                ),
+                (
+                    'country_id', 'country_id', 'res.country',
+                    'There is no such country'
+                ),
+                (
+                    'state_id', 'state_id', 'res.country.state',
+                    'There is no such state'
+                ),
+                (
+                    'uom_id', 'uom_id', 'product.uom',
+                    'There is no such unit of measure'
+                ),
             ]
 
             o2m_param_list = [
@@ -182,7 +210,10 @@ class announcement_controller(http.Controller):
             params_and_parsers = [
                 (bool_params, self.__parse_bool_param, None),
                 (text_params, self.__parse_text_param, None),
-                (date_param_list, self.__parse_date_param, self.check_date_interval),
+                (
+                    date_param_list, self.__parse_date_param,
+                    self.check_date_interval
+                ),
                 (float_param_list, self.__parse_float_param, None),
                 (binary_param_list, self.__parse_binary_param, None),
                 (m2o_param_list, self.__parse_m2o_param, self.check_m2o_value),
@@ -206,7 +237,9 @@ class announcement_controller(http.Controller):
             date_from = self.vals.get('date_from')
             if date_to and date_from:
                 if date_to < date_from:
-                    self.error_message_list.append(_('Date to must be greater or equal to date from'))
+                    self.error_message_list.append(
+                        _('Date to must be greater or equal to date from')
+                    )
                     self.error_param_list.append('date_to')
                     self.error_param_list.append('date_from')
 
@@ -217,11 +250,19 @@ class announcement_controller(http.Controller):
             country_pool = self.registry.get('res.country')
 
             if vals.get('country_id'):
-                country_id = country_pool.search(self.cr, self.uid, [('id','=', vals.get('country_id')), \
-                                                           ('code', '=', DEFAULT_COUNTRY)], limit=1, context=self.context)
-                country_id = (country_id[0] if len(country_id) else False) if type(country_id) is list else country_id
+                country_id = country_pool.search(
+                    self.cr, self.uid,
+                    [
+                        ('id','=', vals.get('country_id')),
+                        ('code', '=', DEFAULT_COUNTRY)
+                    ], limit=1, context=self.context
+                )
+                country_id = (country_id[0] if len(country_id) else False)\
+                    if type(country_id) is list else country_id
                 if vals.get('state_id') and not country_id:
-                    self.error_message_list.append(_('Only announcement from USA can have state'))
+                    self.error_message_list.append(
+                        _('Only announcement from USA can have state')
+                    )
                     self.error_param_list.append('country_id')
                     self.error_param_list.append('state_id')
 
@@ -241,18 +282,22 @@ class announcement_controller(http.Controller):
             if post.get(param):
                 document = post.get(param)
                 try:
-                    attachment_id = self.registry.get('ir.attachment').create(self.cr, self.uid, {
-                        'name': document.filename,
-                        'datas': base64.encodestring(document.read()),
-                        'datas_fname': document.filename,
-                        'res_model': res_model,
-                        'res_id': res_id,
-                    }, context=self.context)
+                    attachment_id = self.registry.get('ir.attachment').create(
+                        self.cr, self.uid, {
+                            'name': document.filename,
+                            'datas': base64.encodestring(document.read()),
+                            'datas_fname': document.filename,
+                            'res_model': res_model,
+                            'res_id': res_id,
+                        }, context=self.context
+                    )
                 except Exception, e:
                     self.error_message_list.append(unicode(e))
                     self.error_param_list.append(param)
 
-        def _parse_tags(self, post, exist_tag_param, new_tag_param, attr, category_attr):
+        def _parse_tags(
+                self, post, exist_tag_param, new_tag_param, attr, category_attr
+        ):
             """ Process exited tags from post params and create new
             """
             tag_list = list()
@@ -266,8 +311,12 @@ class announcement_controller(http.Controller):
                     except Exception:
                         continue
                     if tag_id:
-                        res_id = marketplace_tag_pool.search(self.cr, self.uid, [('id', '=', int(tag_id))], limit=1, context=self.context)
-                        res_id = (res_id[0] if len(res_id) else False) if type(res_id) is list else res_id
+                        res_id = marketplace_tag_pool.search(
+                            self.cr, self.uid, [('id', '=', int(tag_id))],
+                            limit=1, context=self.context
+                        )
+                        res_id = (res_id[0] if len(res_id) else False) \
+                            if type(res_id) is list else res_id
                         if res_id:
                             tag_list.append(res_id)
 
@@ -277,10 +326,16 @@ class announcement_controller(http.Controller):
                 if category_id:
                     for tag in new_tags:
                         if tag != 'None':
-                            res_id = marketplace_tag_pool.create(self.cr, self.uid, {'name': tag, 'category_id': category_id}, context=self.context)
+                            res_id = marketplace_tag_pool.create(
+                                self.cr, self.uid,
+                                {'name': tag, 'category_id': category_id},
+                                context=self.context
+                            )
                             tag_list.append(res_id)
                 else:
-                    error_message_list.append(_('You can\'t create tags if category is not selected'))
+                    error_message_list.append(
+                        _('You can\'t create tags if category is not selected')
+                    )
                     error_param_list.append(new_tag_param)
 
             if len(tag_list):
@@ -289,16 +344,20 @@ class announcement_controller(http.Controller):
         def _parse_currency(self, post, announcement):
             """ Process currency amounts and currency ids from post params. 
 
-            Convert amount to float format then check existence of currency_id. Check currency_id duplication.
-            Then, if there is no error raising in parse process, edit existed currency line and, if it necessary,
+            Convert amount to float format then check existence of currency_id.
+            Check currency_id duplication.
+            Then, if there is no error raising in parse process,
+            edit existed currency line and, if it necessary,
             remove or create new currency line.  
 
             """
             currency_dict = dict()
 
             currency_pool = self.registry.get('res.currency')
-            currency_count = len(currency_pool.search(self.cr, self.uid, [('wallet_currency', '=', True)], 
-                                                      context=self.context))
+            currency_count = len(currency_pool.search(
+                self.cr, self.uid, [('wallet_currency', '=', True)],
+                context=self.context)
+            )
             amount_fromat_error = False
             currency_exist_error = False
             same_currency_error = False
@@ -313,16 +372,23 @@ class announcement_controller(http.Controller):
                         amount_fromat_error = True
                         self.error_param_list.append(amount_key)
                     currency_id = post.get(id_key)
-                    currency_id = currency_pool.search(self.cr, self.uid, [('id', '=', currency_id)], limit=1, context=self.context)
-                    currency_id = (currency_id[0] if len(currency_id) else False) if type(currency_id) is list else currency_id
-                    if currency_id == False:
+                    currency_id = currency_pool.search(
+                        self.cr, self.uid, [('id', '=', currency_id)],
+                        limit=1, context=self.context
+                    )
+                    currency_id = (
+                        currency_id[0] if len(currency_id) else False
+                    ) if type(currency_id) is list else currency_id
+                    if not currency_id:
                         currency_exist_error = True
                         error_param_list.append(id_key)
 
                     if amount and currency_id:
                         currency_dict.update({currency_id: amount})
         
-            post_currency_ids = [post.get('currency_id%s' % _i for _i in range(1, currency_count))]
+            post_currency_ids = [post.get(
+                'currency_id%s' % _i for _i in range(1, currency_count)
+            )]
             for i in range(1, currency_count):
                 if post_currency_ids.count(post.get('currency_id%s' % i)) > 1:
                     self.error_param_list.append('currency_id%s' % i)
@@ -331,7 +397,10 @@ class announcement_controller(http.Controller):
             error_tuple = [
                 (amount_fromat_error, 'Amount must be in a float format'),
                 (currency_exist_error, 'There is no such currency'),
-                (same_currency_error, 'Announcement can\'t have 2 amount with the same currency'),
+                (
+                    same_currency_error,
+                    'Announcement can\'t have 2 amount with the same currency'
+                ),
             ]
 
             for error in error_tuple:
@@ -344,8 +413,11 @@ class announcement_controller(http.Controller):
                 currency_line_to_delete = list()
 
                 currency_ids = announcement.currency_ids
-                currency_count_delta = len(currency_ids) - len(currency_dict.keys())
-                for i in range(min(len(currency_ids), len(currency_dict.keys()))):
+                currency_count_delta = \
+                    len(currency_ids) - len(currency_dict.keys())
+                for i in range(
+                        min(len(currency_ids), len(currency_dict.keys()))
+                ):
                     currency_id = currency_dict.keys()[i]
                     currency_amount = currency_dict[currency_id]
                     currency_line_value.update({currency_ids[i].id: {
@@ -355,11 +427,15 @@ class announcement_controller(http.Controller):
 
                 if currency_count_delta > 0:
                     for i in range(1, currency_count_delta + 1):
-                        currency_line_to_delete.append(currency_ids[len(currency_ids) - i].id)
+                        currency_line_to_delete.append(
+                            currency_ids[len(currency_ids) - i].id
+                        )
 
                 elif currency_count_delta < 0:
                     for i in range(1, abs(currency_count_delta) + 1):
-                        currency_id = currency_dict.keys()[len(currency_dict.keys()) - i]
+                        currency_id = currency_dict.keys()[
+                            len(currency_dict.keys()) - i
+                        ]
                         currency_amount = currency_dict[currency_id]
                         new_currency_line_value.append({
                             'model': 'marketplace.announcement',
@@ -368,22 +444,39 @@ class announcement_controller(http.Controller):
                             'price_unit': currency_amount
                         })
 
-                currency_line_pool = self.registry.get('account.wallet.currency.line')
+                currency_line_pool = self.registry.get(
+                    'account.wallet.currency.line'
+                )
                 for currency_line_id in currency_line_value.keys():
-                    currency_line_pool.write(self.cr, self.uid, currency_line_id, currency_line_value[currency_line_id], context=self.context)
+                    currency_line_pool.write(
+                        self.cr, self.uid, currency_line_id,
+                        currency_line_value[currency_line_id],
+                        context=self.context
+                    )
 
                 for currency_line in new_currency_line_value:
-                    currency_line_pool.create(self.cr, self.uid, currency_line, context=self.context)
+                    currency_line_pool.create(
+                        self.cr, self.uid, currency_line, context=self.context
+                    )
 
                 for currency_line_id in currency_line_to_delete:
-                    currency_line_pool.unlink(self.cr, self.uid, currency_line_id, context=self.context)
+                    currency_line_pool.unlink(
+                        self.cr, self.uid, currency_line_id,
+                        context=self.context
+                    )
 
         def parse(self, announcement, post):
-            """ Process all post params and create vals dict to write to announcement
+            """
+            Process all post params and create vals dict
+            to write to announcement
             """
             self._parse_param(post)
-            self._parse_attachment(post, 'document', 'marketplace.announcement', announcement.id)
-            self._parse_tags(post, 'tag_ids', 'new_tags', 'tag_ids', 'category_id')
+            self._parse_attachment(
+                post, 'document', 'marketplace.announcement', announcement.id
+            )
+            self._parse_tags(
+                post, 'tag_ids', 'new_tags', 'tag_ids', 'category_id'
+            )
             self._parse_currency(post, announcement)
 
     def convert_tuple_to_dict(self, cr, uid, tuple_list, context=None):
@@ -399,12 +492,17 @@ class announcement_controller(http.Controller):
         """
         country_pool = registry.get('res.country')
         state_pool = registry.get('res.country.state')
-        usa_id = country_pool.search(cr, uid, [('code','=',DEFAULT_COUNTRY)], context=context)[0]
-        res = state_pool.name_search(cr, uid, args=[('country_id', '=', usa_id)], context=context) 
+        usa_id = country_pool.search(
+            cr, uid, [('code','=',DEFAULT_COUNTRY)], context=context
+        )[0]
+        res = state_pool.name_search(
+            cr, uid, args=[('country_id', '=', usa_id)], context=context
+        )
         return self.convert_tuple_to_dict(cr, uid, res, context=context)
 
-    
-    def get_all_records(self, cr, uid, registry, model_name, context=None):
+    def get_all_records(
+            self, cr, uid, registry, model_name, context=None
+    ):
         """ Return all records of specified model
         """
         pool = registry.get(model_name)
@@ -429,37 +527,69 @@ class announcement_controller(http.Controller):
             cr, uid,
             [
                 ('model', '=', 'community.config.settings'),
-                ('target_model.model', '=', propoistion_obj._vote_category_model or propoistion_obj._name)
+                (
+                    'target_model.model', '=',
+                    propoistion_obj._vote_category_model
+                    or propoistion_obj._name
+                )
             ], context=context
         )
-        return vote_config_obj.browse(cr, uid, vote_config_ids, context=context)
+        return vote_config_obj.browse(
+            cr, uid, vote_config_ids, context=context
+        )
 
-    def get_attachment_dict(self, cr, uid, registry, announcement, context=None):
+    def get_attachment_dict(
+            self, cr, uid, registry, announcement, context=None
+    ):
         """ Return all attachment of specified announcement
         """
         attach_pool = registry.get('ir.attachment')
 
-        attachment_ids = attach_pool.search(cr, uid, [ ('res_model','=','marketplace.announcement'),
-                                                      ('res_id','=', announcement.id),
-                                                                                          ] )
+        attachment_ids = attach_pool.search(
+            cr, uid,
+            [
+                ('res_model','=','marketplace.announcement'),
+                ('res_id','=', announcement.id),
+            ]
+        )
         attachment_dict = dict()
         for attachment in attach_pool.browse(cr, uid, attachment_ids):
-            # Marketplace picture there is name of picture from announcement.picture field
+            # Marketplace picture there is name of picture
+            # from announcement.picture field
             if attachment.name != 'Marketplace picture':
-                attachment_dict.update({'/marketplace/announcement_detail/%s/attachment/%s' % (announcement.id, attachment.id): attachment.name})
+                attachment_dict.update(
+                    {
+                        '/marketplace/announcement_detail/%s/attachment/%s'
+                        % (announcement.id, attachment.id): attachment.name
+                    }
+                )
         return attachment_dict
 
-    @http.route('/marketplace/announcement_detail/tags/<int:category_id>/get', type='json', auth="public", website=True)
+    @http.route(
+        '/marketplace/announcement_detail/tags/<int:category_id>/get',
+        type='json', auth="public", website=True
+    )
     def tag_dict_by_category(self, category_id):
         """ JSON route for getting tags of specified category 
         """
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+        cr, uid, context, registry = request.cr, \
+            request.uid, request.context, request.registry
         tag_pool = registry.get('marketplace.tag')
-        tag_list = tag_pool.name_search(cr, uid, '', [('category_id', 'child_of', category_id)],
-                                        context=context)
-        return {'tag_dict': self.convert_tuple_to_dict(cr, uid, tag_list, context=context)}
+        tag_list = tag_pool.name_search(
+            cr, uid, '', [('category_id', 'child_of', category_id)],
+            context=context
+        )
+        return {
+            'tag_dict': self.convert_tuple_to_dict(
+                cr, uid, tag_list, context=context
+            )
+        }
 
-    @http.route('/marketplace/announcement_detail/<model("marketplace.announcement"):announcement>/attachment/<model("ir.attachment"):attachment>', type='http', auth="public", website=True)
+    @http.route(
+        '/marketplace/announcement_detail/<model("marketplace.announcement"):'
+        'announcement>/attachment/<model("ir.attachment"):attachment>',
+        type='http', auth="public", website=True
+    )
     def download_attachment(self, announcement, attachment):
         """ Route for download attachment
         """
@@ -476,21 +606,37 @@ class announcement_controller(http.Controller):
             response = request.not_found()
         return response
 
-    @http.route('/marketplace/announcement_detail/<model("marketplace.announcement"):announcement>/attachment/<model("ir.attachment"):attachment>/delete', type='json', auth="public", website=True)
+    @http.route(
+        '/marketplace/announcement_detail/<model("marketplace.announcement"):'
+        'announcement>/attachment/<model("ir.attachment"):attachment>/delete',
+        type='json', auth="public", website=True
+    )
     def delete_attachment(self, announcement, attachment):
         """ Route for process delete attachment request 
         """
         if attachment.res_id == announcement.id:
-            cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
-            user = registry.get('res.users').browse(cr, uid, uid, context=context)
+            cr, uid, context, registry = request.cr, \
+                request.uid, request.context, request.registry
+            user = registry.get('res.users').browse(
+                cr, uid, uid, context=context
+            )
 
-            if user and announcement.partner_id == user.partner_id or uid == SUPERUSER_ID: 
-                registry.get('ir.attachment').unlink(cr, uid, attachment.id, context=context)
+            if user and announcement.partner_id == user.partner_id \
+                    or uid == SUPERUSER_ID:
+                registry.get('ir.attachment').unlink(
+                    cr, uid, attachment.id, context=context
+                )
                 response = {'status': 'ok'}
             else:
-                response = {'status': 'error', 'error': 'You can not edit this announcement'}
+                response = {
+                    'status': 'error',
+                    'error': 'You can not edit this announcement'
+                }
         else:
-            response = {'status': 'error', 'error': 'This attachment is not belong to this announcement'}
+            response = {
+                'status': 'error',
+                'error': 'This attachment is not belong to this announcement'
+            }
         return response
 
     def _get_my_reply(self):
@@ -498,7 +644,9 @@ class announcement_controller(http.Controller):
             'errors': {},
             'quantity': 0.0,
             'description': '',
-            'write_date': datetime.today().strftime(DEFAULT_SERVER_DATETIME_FORMAT),
+            'write_date': datetime.today().strftime(
+                DEFAULT_SERVER_DATETIME_FORMAT
+            ),
             'currency_ids': [AttrDict({
                 'id': 0,
                 'is_new': True,
@@ -509,7 +657,9 @@ class announcement_controller(http.Controller):
             'state': 'draft',
         })
 
-    def _get_my_vote(self, cr, uid, registry, announcement, partner_id, context=None):
+    def _get_my_vote(
+            self, cr, uid, registry, announcement, partner_id, context=None
+    ):
         vote_pool = registry.get('vote.vote')
         res = False
         vote_ids = vote_pool.search(cr, uid, [
@@ -525,7 +675,9 @@ class announcement_controller(http.Controller):
                 'line_ids': [AttrDict({
                     'type_id': vote_type.name,
                     'vote': '0',
-                }) for vote_type in self.get_vote_types(cr, uid, registry, context)]
+                }) for vote_type in self.get_vote_types(
+                    cr, uid, registry, context
+                )]
             })
         return res
 
@@ -552,7 +704,9 @@ class announcement_controller(http.Controller):
             'id': id,
             'quantity': data.get('quantity'),
             'description': data.get('description'),
-            'write_date': datetime.today().strftime(DEFAULT_SERVER_DATETIME_FORMAT),
+            'write_date': datetime.today().strftime(
+                DEFAULT_SERVER_DATETIME_FORMAT
+            ),
             'currency_ids': [],
         }
         currency_ids = {'existing': {}, 'new': {}}
@@ -562,42 +716,63 @@ class announcement_controller(http.Controller):
             if key.startswith('currency_ids'):
                 for f in ['currency_id', 'price_unit']:
                     for t in ['new', 'existing']:
-                        curr_number = re.search('currency_ids\[%s\]\[(\d+)\]\[%s\]' % (t, f), key)
+                        curr_number = re.search(
+                            'currency_ids\[%s\]\[(\d+)\]\[%s\]' % (t, f), key
+                        )
                         if curr_number:
                             curr_number = int(curr_number.group(1))
                             if f == 'currency_id':
                                 if val in currencies_uniq:
-                                    errors['currency_ids'] = _('Currency cannot have multiple unit prices')
+                                    errors['currency_ids'] = \
+                                        _('Currency cannot have multiple '
+                                          'unit prices')
                                 else:
                                     currencies_uniq.append(val)
                             if not curr_number in currency_ids[t]:
                                 currency_ids[t][curr_number] = {
                                     'id': curr_number,
-                                    f: AttrDict({'id': val}) if f == 'currency_id' else val,
+                                    f: AttrDict({'id': val})
+                                    if f == 'currency_id' else val,
                                     'is_new': True if t == 'new' else False,
                                     'subtotal': '',
                                 }
                             else:
-                                currency_ids[t][curr_number].update({f: AttrDict({'id': val}) if f == 'currency_id' else val})
-        res['currency_ids'] = [AttrDict(line) for key in ['existing', 'new'] for line in currency_ids[key].values()]
+                                currency_ids[t][curr_number].update(
+                                    {
+                                        f: AttrDict({'id': val})
+                                        if f == 'currency_id' else val
+                                    }
+                                )
+        res['currency_ids'] = [AttrDict(line) for key in ['existing', 'new']
+                               for line in currency_ids[key].values()]
         if not data['quantity']:
             errors.update({'quantity': _('Please input quantity')})
         else:
             try:
                 float(data['quantity'])
             except:
-                errors.update({'quantity': _('Quantity should be a float number e.g. 12.99')})
+                errors.update(
+                    {
+                        'quantity':
+                        _('Quantity should be a float number e.g. 12.99')
+                    }
+                )
         if not 'currency_ids' in errors:
             for line in res['currency_ids']:
                 try:
                     float(line.price_unit)
                 except:
-                    errors.update({'currency_ids': _('Unit price should be a float number e.g. 12.99')})
+                    errors.update({
+                        'currency_ids':
+                        _('Unit price should be a float number e.g. 12.99')
+                    })
                     break
         res['errors'] = errors
         return AttrDict(res)
 
-    def _save_reply(self, cr, uid, registry, announcement, reply, id=None, context=None):
+    def _save_reply(
+            self, cr, uid, registry, announcement, reply, id=None, context=None
+    ):
         proposition_pool = registry.get('marketplace.proposition')
         vals = {
             'quantity': reply.quantity,
@@ -609,21 +784,25 @@ class announcement_controller(http.Controller):
         currency_ids = []
         # Collect vlues for o2m field currency_ids to create and write
         for line in reply.currency_ids:
-            vals['currency_ids'].append((0 if getattr(line, 'is_new', False) else 1,
-                                         0 if getattr(line, 'is_new', False) else line.id,
-                                         {
-                                            'model': 'account.wallet.transaction',
-                                            'price_unit': line.price_unit,
-                                            'currency_id': line.currency_id.id,
-                                         })
-            )
+            vals['currency_ids'].append((
+                0 if getattr(line, 'is_new', False) else 1,
+                0 if getattr(line, 'is_new', False) else line.id,
+                {
+                    'model': 'account.wallet.transaction',
+                    'price_unit': line.price_unit,
+                    'currency_id': line.currency_id.id,
+                }
+            ))
         if id:
             # Collect vlues for o2m field currency_ids to delete
             proposition = proposition_pool.browse(cr, uid, id, context=context)
             if not proposition.is_sender:
                 return False
-            currency_to_del_ids = list(set([c.id for c in proposition.currency_ids]) - \
-                                set([c.id for c in reply.currency_ids if not getattr(c, 'is_new', False)]))
+            currency_to_del_ids = list(
+                set([c.id for c in proposition.currency_ids]) - \
+                set([c.id for c in reply.currency_ids if not getattr(
+                    c, 'is_new', False
+                )]))
             for c_id in currency_to_del_ids:
                 vals['currency_ids'].insert(0, (2, c_id))
             # Update proposition
@@ -631,9 +810,13 @@ class announcement_controller(http.Controller):
         else:
             # Create and publish proposition
             id = proposition_pool.create(cr, uid, vals, context=context)
-            # workflow.trg_validate(uid, 'marketplace.proposition', id, 'proposition_draft_open', cr)
+            # workflow.trg_validate(uid, 'marketplace.proposition', id,
+            # 'proposition_draft_open', cr)
 
-    def _save_vote(self, cr, uid, registry, announcement, my_vote, partner_id, context=None):
+    def _save_vote(
+            self, cr, uid, registry, announcement,
+            my_vote, partner_id, context=None
+    ):
         vote_pool = registry.get('vote.vote')
         ids = vote_pool.search(cr, uid, [
             ('partner_id', '=', partner_id),
@@ -657,8 +840,11 @@ class announcement_controller(http.Controller):
             vote_pool.create(cr, uid, vals, context=context)
         return True
 
-    def _get_view_announcement_dict(self, cr, uid, registry, announcement, my_reply=None, 
-                                    updated_reply=None, updated_reply_saved=False, my_vote=None, context=None):
+    def _get_view_announcement_dict(
+            self, cr, uid, registry, announcement, my_reply=None,
+            updated_reply=None, updated_reply_saved=False,
+            my_vote=None, context=None
+    ):
         """ Return dict of values needed to view announcement template
         """
         user = registry.get('res.users').browse(cr, uid, uid, context=context)
@@ -666,31 +852,53 @@ class announcement_controller(http.Controller):
         return {
             'announcement':announcement,
             'author': announcement.partner_id,
-            'vote_list': dict([(v.partner_id.id, v) for v in announcement.vote_vote_ids]),
+            'vote_list': dict(
+                [(v.partner_id.id, v) for v in announcement.vote_vote_ids]
+            ),
             'my_reply': my_reply or self._get_my_reply(),
             'updated_reply': updated_reply,
-            'my_vote': my_vote or self._get_my_vote(cr, uid, request.registry, announcement, 
-                                                    user.partner_id.id, context=context),
-            'type_dict': self.get_type_dict(cr, uid, request.registry, context=context),
-            'attachment_dict': self.get_attachment_dict(cr, uid, request.registry, announcement, context=context),
+            'my_vote': my_vote or self._get_my_vote(
+                cr, uid, request.registry, announcement,
+                user.partner_id.id, context=context
+            ),
+            'type_dict': self.get_type_dict(
+                cr, uid, request.registry, context=context
+            ),
+            'attachment_dict': self.get_attachment_dict(
+                cr, uid, request.registry, announcement, context=context
+            ),
             'date_from': '' if not announcement.date_from else \
-                datetime.strptime(announcement.date_from, DEFAULT_SERVER_DATE_FORMAT).strftime(date_format),
+                datetime.strptime(
+                    announcement.date_from,
+                    DEFAULT_SERVER_DATE_FORMAT
+                ).strftime(date_format),
             'date_to': '' if not announcement.date_to else \
-                datetime.strptime(announcement.date_to, DEFAULT_SERVER_DATE_FORMAT).strftime(date_format),
+                datetime.strptime(
+                    announcement.date_to, DEFAULT_SERVER_DATE_FORMAT
+                ).strftime(date_format),
             'getattr': getattr,
-            'currency_dict': self.get_all_records(cr, uid, registry, 'res.currency', context=context),
+            'currency_dict': self.get_all_records(
+                cr, uid, registry, 'res.currency', context=context
+            ),
             'format_date': format_date,
-            'vote_types': self.get_vote_types(cr, uid, registry, context=context),
+            'vote_types': self.get_vote_types(
+                cr, uid, registry, context=context
+            ),
             'allow_reply': len([1 for p in announcement.proposition_ids 
                 if p.is_sender and p.state in ('draft', 'open')]) == 0,
             'updated_reply_saved': updated_reply_saved
         }
 
-    @http.route('/marketplace/announcement_detail/<model("marketplace.announcement"):announcement>', type='http', auth="public", website=True)
+    @http.route(
+        '/marketplace/announcement_detail/<model("marketplace.announcement"):'
+        'announcement>',
+        type='http', auth="public", website=True
+    )
     def view_announcement(self, announcement, **post):
         """ Route for process view announcement request
         """
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+        cr, uid, context, registry = request.cr, \
+                             request.uid, request.context, request.registry
         user = registry.get('res.users').browse(cr, uid, uid, context=context)
 
         my_reply = self._get_my_reply()
@@ -700,67 +908,120 @@ class announcement_controller(http.Controller):
         if 'make_reply' in post:
             my_reply = self._validate_reply(post)
             if not my_reply.errors:
-                self._save_reply(cr, uid, registry, announcement, my_reply, id=None, context=context)
+                self._save_reply(
+                    cr, uid, registry, announcement, my_reply,
+                    id=None, context=context
+                )
                 my_reply = None
                 # my_vote = self._parse_vote(post)
-                # self._save_vote(cr, uid, registry, announcement, my_vote, user.partner_id.id, context=context)
+                # self._save_vote(cr, uid, registry, announcement,
+                # my_vote, user.partner_id.id, context=context)
                 # my_vote = None
         elif 'update_reply' in post:
-            updated_reply = self._validate_reply(post, id=int(post.get('update_reply')))
+            updated_reply = self._validate_reply(
+                post, id=int(post.get('update_reply'))
+            )
             if not updated_reply.errors:
-                self._save_reply(cr, uid, registry, announcement, updated_reply, 
-                                 id=int(post.get('update_reply')), context=context)
+                self._save_reply(
+                    cr, uid, registry, announcement, updated_reply,
+                    id=int(post.get('update_reply')), context=context
+                )
                 updated_reply = None
                 updated_reply_saved = int(post.get('update_reply'))
-        web_page = http.request.website.render('website_marketplace.view_announcement',
-            self._get_view_announcement_dict(cr, uid, registry, announcement, my_reply,
-                                             updated_reply, updated_reply_saved, my_vote, context=context))
+        web_page = http.request.website.render(
+            'website_marketplace.view_announcement',
+            self._get_view_announcement_dict(
+                cr, uid, registry, announcement, my_reply,
+                updated_reply, updated_reply_saved, my_vote, context=context
+            )
+        )
         return web_page
 
-    def _get_edit_announcement_dict(self, cr, uid, registry, announcement, context=None):
+    def _get_edit_announcement_dict(
+            self, cr, uid, registry, announcement, context=None
+    ):
         """ Return dict of values needed to edit announcement template
         """
         date_format = get_date_format(cr, uid, context)
         res = {
             'announcement':announcement,
-            'announcement_picture': ('data:image/jpeg;base64,%s' % announcement.picture)
-                                                            if announcement.picture else '/web/static/src/img/placeholder.png',
-            'announcement_group_ids': [group.id for group in announcement.context_group_ids],
+            'announcement_picture': (
+                'data:image/jpeg;base64,%s' % announcement.picture
+            ) if announcement.picture
+            else '/web/static/src/img/placeholder.png',
+            'announcement_group_ids': [
+                group.id for group in announcement.context_group_ids
+            ],
             'author': announcement.partner_id,
-            'us_state_dict': self.get_default_country_state(cr, uid, request.registry, context=context),
-            'country_dict': self.get_all_records(cr, uid, request.registry, 'res.country', context=context),
-            'type_dict': self.get_type_dict(cr, uid, request.registry, context=context),
-            'category_dict': self.get_all_records(cr, uid, request.registry, \
-                                                        'marketplace.announcement.category', context=context),
-            'currency_dict': self.get_all_records(cr, uid, request.registry, 'res.currency', context=context),
-            'group_dict': self.get_all_records(cr, uid, request.registry, 'mail.group', context=context),
-            'attachment_dict': self.get_attachment_dict(cr, uid, request.registry, announcement, context=context),
-            'tag_dict': self.get_all_records(cr, uid, request.registry, 'marketplace.tag', context=context),
-            'uom_dict': self.get_all_records(cr, uid, registry, 'product.uom', context=context),
-            'date_placeholder': date_format.replace('%d','DD').replace('%m','MM').replace('%Y','YYYY'),
+            'us_state_dict': self.get_default_country_state(
+                cr, uid, request.registry, context=context
+            ),
+            'country_dict': self.get_all_records(
+                cr, uid, request.registry, 'res.country', context=context
+            ),
+            'type_dict': self.get_type_dict(
+                cr, uid, request.registry, context=context
+            ),
+            'category_dict': self.get_all_records(
+                cr, uid, request.registry, \
+                'marketplace.announcement.category', context=context
+            ),
+            'currency_dict': self.get_all_records(
+                cr, uid, request.registry, 'res.currency', context=context
+            ),
+            'group_dict': self.get_all_records(
+                cr, uid, request.registry, 'mail.group', context=context
+            ),
+            'attachment_dict': self.get_attachment_dict(
+                cr, uid, request.registry, announcement, context=context
+            ),
+            'tag_dict': self.get_all_records(
+                cr, uid, request.registry, 'marketplace.tag', context=context
+            ),
+            'uom_dict': self.get_all_records(
+                cr, uid, registry, 'product.uom', context=context
+            ),
+            'date_placeholder': date_format.replace('%d','DD').
+                replace('%m','MM').replace('%Y','YYYY'),
             'date_from': announcement.date_from,
             'date_to': announcement.date_to,
             'format_date': format_date,
-            'vote_list': dict([(v.partner_id.id, v) for v in announcement.vote_vote_ids]),
+            'vote_list': dict(
+                [(v.partner_id.id, v) for v in announcement.vote_vote_ids]
+            ),
         }
         if type(announcement) != AttrDict:
             res.update({
                 'date_from': '' if not announcement.date_from else \
-                    datetime.strptime(announcement.date_from, DEFAULT_SERVER_DATE_FORMAT).strftime(date_format),
+                datetime.strptime(
+                    announcement.date_from, DEFAULT_SERVER_DATE_FORMAT
+                ).strftime(date_format),
                 'date_to': '' if not announcement.date_to else \
-                    datetime.strptime(announcement.date_to, DEFAULT_SERVER_DATE_FORMAT).strftime(date_format),
+                datetime.strptime(
+                    announcement.date_to, DEFAULT_SERVER_DATE_FORMAT
+                ).strftime(date_format),
             })
         return res
 
-    @http.route('/marketplace/announcement_detail/<model("marketplace.announcement"):announcement>/edit', type='http', auth="public", website=True)
+    @http.route(
+        '/marketplace/announcement_detail/<model("marketplace.announcement"):'
+        'announcement>/edit',
+        type='http', auth="public", website=True
+    )
     def edit_announcement(self, announcement):
         """ Route for process edit announcement request
         """
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+        cr, uid, context, registry = request.cr, \
+            request.uid, request.context, request.registry
         user = registry.get('res.users').browse(cr, uid, uid, context=context)
-        if user and announcement.partner_id.id == user.partner_id.id or uid == SUPERUSER_ID: 
-            response = http.request.website.render('website_marketplace.edit_announcement',
-                self._get_edit_announcement_dict(cr, uid, registry, announcement, context=context))
+        if user and announcement.partner_id.id == user.partner_id.id \
+                or uid == SUPERUSER_ID:
+            response = http.request.website.render(
+                'website_marketplace.edit_announcement',
+                self._get_edit_announcement_dict(
+                    cr, uid, registry, announcement, context=context
+                )
+            )
         else:
             response = request.not_found()
         return response
@@ -822,7 +1083,10 @@ class announcement_controller(http.Controller):
             amount = post.get('currency_amount%s' % i)
             currency = post.get('currency_id%s' % i)
             if amount:
-                currency_ids.append(AttrDict({'price_unit': amount, 'currency_id': AttrDict({'id': int(currency)})}))
+                currency_ids.append(AttrDict({
+                    'price_unit': amount,
+                    'currency_id': AttrDict({'id': int(currency)})}
+                ))
         res.update({
             'id': announcement.id,
             'currency_ids': currency_ids,
@@ -834,28 +1098,49 @@ class announcement_controller(http.Controller):
         })
         return AttrDict(res)
 
-    def _parse_and_save_announcement(self, cr, uid, registry, announcement, post, context=None):
+    def _parse_and_save_announcement(
+            self, cr, uid, registry, announcement, post, context=None
+    ):
         """ Parse all post params and render to the appropriate page
 
-        Parse post params. In case, if some values was no valid, rollback all changes in cache, and render
-        new announcement or edit announcement page. In case, if all values was successfully parsed - write vals dict
+        Parse post params. In case, if some values was no valid,
+        rollback all changes in cache, and render
+        new announcement or edit announcement page. In case,
+        if all values was successfully parsed - write vals dict
         to announcement and render view announcement page. 
 
         """
-        parser = self.save_annnouncement_parser(cr, uid, registry, context=context)
+        parser = self.SaveAnnnouncementParser(
+            cr, uid, registry, context=context
+        )
         parser.parse(announcement, post)
 
         if len(parser.error_param_list) > 0:
-            edited_announcement = self._get_announcement_from_post(post, announcement)
-            response = self._get_edit_announcement_dict(cr, uid, registry, edited_announcement, context=context)
+            edited_announcement = self._get_announcement_from_post(
+                post, announcement
+            )
+            response = self._get_edit_announcement_dict(
+                cr, uid, registry, edited_announcement, context=context
+            )
             template_id = 'website_marketplace.edit_announcement'
-            response.update({'error_param_list': parser.error_param_list, 'error_message_list': parser.error_message_list})
+            response.update({
+                'error_param_list': parser.error_param_list,
+                'error_message_list': parser.error_message_list
+            })
             cr.rollback()
         else:
-            res_id = registry.get('marketplace.announcement').write(cr, uid, announcement.id, parser.vals, context=context)
-            announcement = registry.get('marketplace.announcement').browse(cr, uid, announcement.id, context=context)
-            response = self._get_view_announcement_dict(cr, uid, registry, announcement, context=context)
-            response.update({'success_message_list': [_('Announcement successfully saved')]})
+            res_id = registry.get('marketplace.announcement').write(
+                cr, uid, announcement.id, parser.vals, context=context
+            )
+            announcement = registry.get('marketplace.announcement').browse(
+                cr, uid, announcement.id, context=context
+            )
+            response = self._get_view_announcement_dict(
+                cr, uid, registry, announcement, context=context
+            )
+            response.update({
+                'success_message_list': [_('Announcement successfully saved')]
+            })
             template_id = 'website_marketplace.view_announcement'
         
         return {'template_id': template_id, 'response': response}
@@ -870,73 +1155,128 @@ class announcement_controller(http.Controller):
         if post.get('groups'):
             post['groups'] = request.httprequest.form.getlist('groups')
 
-    @http.route('/marketplace/announcement_detail/<model("marketplace.announcement"):announcement>/save', type='http', auth="user", website=True)
+    @http.route(
+        '/marketplace/announcement_detail/<model("marketplace.announcement"):'
+        'announcement>/save',
+        type='http', auth="user", website=True
+    )
     def save_announcement(self, announcement, **post):
         """ Route to process save announcement request
         """
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+        cr, uid, context, registry = request.cr, \
+            request.uid, request.context, request.registry
         user = registry.get('res.users').browse(cr, uid, uid, context=context)
-        if user and announcement.partner_id == user.partner_id or uid == SUPERUSER_ID:  
+        if user and announcement.partner_id == user.partner_id \
+                or uid == SUPERUSER_ID:
             self._prepare_save_announcemet_param(cr, uid, request, post)
-            res = self._parse_and_save_announcement(cr, uid, registry, announcement, post, context=context)
-            response = http.request.website.render(res['template_id'], res['response'])
+            res = self._parse_and_save_announcement(
+                cr, uid, registry, announcement, post, context=context
+            )
+            response = http.request.website.render(
+                res['template_id'], res['response']
+            )
         else:
             response = request.not_found()
         return response
 
-    def _get_new_announcement_dict(self, cr, uid, registry, partner, context=None):
+    def _get_new_announcement_dict(
+            self, cr, uid, registry, partner, context=None
+    ):
         """ Return dict of values needed to new announcement template
         """
         return {
             'author': partner,
-            'us_state_dict': self.get_default_country_state(cr, uid, registry, context=context),
-            'country_dict': self.get_all_records(cr, uid, registry, 'res.country', context=context),
-            'type_dict': self.get_type_dict(cr, uid, request.registry, context=context),
-            'category_dict': self.get_all_records(cr, uid, registry, \
-                                                            'marketplace.announcement.category', context=context),
-            'currency_dict': self.get_all_records(cr, uid, registry, 'res.currency', context=context),
-            'group_dict': self.get_all_records(cr, uid, registry, 'mail.group', context=context),
-            'uom_dict': self.get_all_records(cr, uid, registry, 'product.uom', context=context),
-            'date_placeholder': get_date_format(cr, uid, context) \
-                .replace('%d','DD').replace('%m','MM').replace('%Y','YYYY'),
+            'us_state_dict': self.get_default_country_state(
+                cr, uid, registry, context=context
+            ),
+            'country_dict': self.get_all_records(
+                cr, uid, registry, 'res.country', context=context
+            ),
+            'type_dict': self.get_type_dict(
+                cr, uid, request.registry, context=context
+            ),
+            'category_dict': self.get_all_records(
+                cr, uid, registry,
+                'marketplace.announcement.category', context=context
+            ),
+            'currency_dict': self.get_all_records(
+                cr, uid, registry, 'res.currency', context=context
+            ),
+            'group_dict': self.get_all_records(
+                cr, uid, registry, 'mail.group', context=context
+            ),
+            'uom_dict': self.get_all_records(
+                cr, uid, registry, 'product.uom', context=context
+            ),
+            'date_placeholder': get_date_format(
+                cr, uid, context
+            ).replace('%d','DD').replace('%m','MM').replace('%Y','YYYY'),
         }
 
-    @http.route('/marketplace/announcement_detail/new', type='http', auth="public", website=True)
+    @http.route(
+        '/marketplace/announcement_detail/new',
+        type='http', auth="public", website=True
+    )
     def new_announcement(self):
         """ Route to process create new announcement request
         """
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+        cr, uid, context, registry = request.cr, \
+            request.uid, request.context, request.registry
         user = registry.get('res.users').browse(cr, uid, uid, context=context)
         if user and user.partner_id:  
-            response = http.request.website.render('website_marketplace.new_announcement',
-                self._get_new_announcement_dict(cr, uid, registry, user.partner_id, context=context))
+            response = http.request.website.render(
+                'website_marketplace.new_announcement',
+                self._get_new_announcement_dict(
+                    cr, uid, registry, user.partner_id, context=context
+                )
+            )
         else:
             response = request.not_found()
 
         return response
 
-    @http.route('/marketplace/announcement_detail/new/save', type='http', auth="user", website=True)
+    @http.route(
+        '/marketplace/announcement_detail/new/save',
+        type='http', auth="user", website=True
+    )
     def save_new_announcement(self, **post):
         """ Route to process save new announcement request
         """
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
-        user = registry.get('res.users').browse(cr, uid, uid, context=context)
+        cr, uid, context, registry = request.cr, \
+            request.uid, request.context, request.registry
+        user = registry.get('res.users').browse(
+            cr, uid, uid, context=context
+        )
         self._prepare_save_announcemet_param(cr, uid, request, post)
-        announcement = registry.get('marketplace.announcement').create(cr, uid, {
-            'name': '', 
-            'partner_id': user.partner_id.id,
-        }, context=context)
-        announcement = registry.get('marketplace.announcement').browse(cr, uid, announcement, context=context)
+        announcement = registry.get('marketplace.announcement').create(
+            cr, uid, {
+                'name': '',
+                'partner_id': user.partner_id.id,
+            }, context=context
+        )
+        announcement = registry.get('marketplace.announcement').browse(
+            cr, uid, announcement, context=context
+        )
         if not context:
             context = dict()
         context.update({'from_new_announcement': True})
-        res = self._parse_and_save_announcement(cr, uid, registry, announcement, post, context=context)
-        response = http.request.website.render(res['template_id'], res['response'])
+        res = self._parse_and_save_announcement(
+            cr, uid, registry, announcement, post, context=context
+        )
+        response = http.request.website.render(
+            res['template_id'], res['response']
+        )
         return response
 
-    @http.route('/marketplace/announcement/<model("marketplace.announcement"):announcement>/<any("draft_cancel","draft_open","open_cancel","open_done", "done_open","cancel_draft"):state>', type='http', auth="user", website=True)
+    @http.route(
+        '/marketplace/announcement/<model("marketplace.announcement"):'
+        'announcement>/<any("draft_cancel","draft_open","open_cancel",'
+        '"open_done", "done_open","cancel_draft"):state>',
+        type='http', auth="user", website=True
+    )
     def announcement_change_state(self, announcement, state):
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+        cr, uid, context, registry = request.cr, \
+            request.uid, request.context, request.registry
         state_signal = {
             'draft_cancel': 'announcement_draft_cancel',
             'draft_open': 'announcement_draft_open',
@@ -944,15 +1284,27 @@ class announcement_controller(http.Controller):
             'open_done': 'announcement_open_done',
         }
         if state in state_signal.keys():
-            workflow.trg_validate(uid, 'marketplace.announcement', announcement.id,
-                                  state_signal.get(state), cr)
+            workflow.trg_validate(
+                uid, 'marketplace.announcement', announcement.id,
+                state_signal.get(state), cr
+            )
         if state in ['cancel_draft', 'done_open']:
-            registry.get('marketplace.announcement').reset_workflow(cr, uid, [announcement.id])
+            registry.get('marketplace.announcement').reset_workflow(
+                cr, uid, [announcement.id]
+            )
         return self.view_announcement(announcement)
 
-    @http.route('/marketplace/reply/<model("marketplace.proposition"):proposition>/<any("draft_cancel","draft_open","open_cancel","accept","reject","reject_draft","accepted_cancel","invoice","invoiced_cancel","pay","confirm","refund","confirmrefund_paid","confirmrefund_cancel","cancel_draft"):state>', type='http', auth="user", website=True)
+    @http.route(
+        '/marketplace/reply/<model("marketplace.proposition"):'
+        'proposition>/<any("draft_cancel","draft_open","open_cancel","accept",'
+        '"reject","reject_draft","accepted_cancel","invoice",'
+        '"invoiced_cancel","pay","confirm","refund","confirmrefund_paid",'
+        '"confirmrefund_cancel","cancel_draft"):state>',
+        type='http', auth="user", website=True
+    )
     def proposition_change_state(self, proposition, state):
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+        cr, uid, context, registry = request.cr, \
+            request.uid, request.context, request.registry
         state_signal = {
             'draft_cancel': 'proposition_draft_cancel',
             'draft_open': 'proposition_draft_open',
@@ -966,20 +1318,26 @@ class announcement_controller(http.Controller):
             'confirmrefund_cancel': 'proposition_confirm_refund_cancel',
         }
         if state in state_signal.keys():
-            workflow.trg_validate(uid, 'marketplace.proposition', proposition.id, 
-                                  state_signal.get(state), cr)
+            workflow.trg_validate(
+                uid, 'marketplace.proposition', proposition.id,
+                state_signal.get(state), cr
+            )
 
         if state == 'pay':
-            registry.get('marketplace.proposition').pay(cr, uid, [proposition.id])
+            registry.get('marketplace.proposition').pay(
+                cr, uid, [proposition.id]
+            )
         if state == 'confirm':
-            registry.get('marketplace.proposition').confirm(cr, uid, [proposition.id])
+            registry.get('marketplace.proposition').confirm(
+                cr, uid, [proposition.id]
+            )
         if state in ['cancel_draft', 'reject_draft', 'refund']:
-            registry.get('marketplace.proposition').reset_workflow(cr, uid, [proposition.id])
+            registry.get('marketplace.proposition').reset_workflow(
+                cr, uid, [proposition.id]
+            )
 
         user = registry.get('res.users').browse(cr, uid, uid, context=context)
 
         return self.view_announcement(proposition.announcement_id)
 
-announcement_controller()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+AnnouncementController()

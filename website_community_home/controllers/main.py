@@ -35,39 +35,54 @@ import werkzeug
 from openerp.addons.website_base_community.controllers.main import strip_tags, format_text
 
 
-
 class Website(http.Controller):
 
     ANNOUNCEMENT_LIMIT = 3
 
     def get_last_announcements(self, ttype):
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+        cr, uid, context, registry = request.cr, \
+            request.uid, request.context, request.registry
         announcement_pool = registry.get('marketplace.announcement')
-        announcement_ids = announcement_pool.search(cr, uid, [('state','=', 'open'), ('type', '=', ttype)],
-             limit=self.ANNOUNCEMENT_LIMIT, order="date_from DESC", context=context)
-        return announcement_pool.browse(cr, uid, announcement_ids, context=context)
+        announcement_ids = announcement_pool.search(
+            cr, uid, [('state','=', 'open'), ('type', '=', ttype)],
+            limit=self.ANNOUNCEMENT_LIMIT, order="date_from DESC",
+            context=context
+        )
+        return announcement_pool.browse(
+            cr, uid, announcement_ids, context=context
+        )
 
     def get_last_event(self):
         """
         Get one last event
         :return: browse_record
         """
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+        cr, uid, context, registry = request.cr, \
+            request.uid, request.context, request.registry
         event_pool = registry.get('event.event')
-        event_id = event_pool.search(cr, uid, [('state','=','confirm')], order="date_begin DESC", 
-                                     limit=1, context=context)
-        return event_pool.browse(cr, uid, event_id, context=context)[0] if event_id else False
+        event_id = event_pool.search(
+            cr, uid, [('state','=','confirm')], order="date_begin DESC",
+            limit=1, context=context
+        )
+        return event_pool.browse(
+            cr, uid, event_id, context=context
+        )[0] if event_id else False
 
     def get_last_blog_post(self):
         """
         Get one last blog post
         :return: browse_record
         """
-        cr, uid, context, registry = request.cr, request.uid, request.context, request.registry
+        cr, uid, context, registry = request.cr, \
+            request.uid, request.context, request.registry
         post_pool = registry.get('blog.post')
-        post_id = post_pool.search(cr, uid, [('website_published','=',True)], order="id DESC", 
-                                     limit=1, context=context)
-        return post_pool.browse(cr, uid, post_id, context=context)[0] if post_id else False
+        post_id = post_pool.search(
+            cr, uid, [('website_published','=',True)], order="id DESC",
+            limit=1, context=context
+        )
+        return post_pool.browse(
+            cr, uid, post_id, context=context
+        )[0] if post_id else False
 
     @http.route('/page/homepage', type='http', auth="public", website=True)
     def page(self):

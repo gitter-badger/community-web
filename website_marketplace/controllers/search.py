@@ -27,7 +27,7 @@ from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from datetime import datetime
 from openerp.addons.website_base_community.controllers.main import get_date_format, format_date, format_text
 
-class search_controller(http.Controller):
+class SearchController(http.Controller):
 
     QUERY_LIMIT = 4
     SEARCH_PARAMS = [
