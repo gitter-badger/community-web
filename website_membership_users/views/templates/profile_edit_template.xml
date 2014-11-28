@@ -224,7 +224,7 @@
                                 </div>
                             </div>
                         </div>
-                        <t t-if="is_administrator">
+                        <t t-if="partner.see_balance">
                             <div class="row">
 <!--                                <div class="col-md-12">
                                     <div class="col-md-4">

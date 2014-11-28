@@ -188,7 +188,7 @@
                                     </div>
                                 <!-- </div> -->
                             <!-- </div> -->
-                            <t t-if="is_administrator or partner.id == user_id.partner_id.id">
+                            <t t-if="partner.see_balance">
                                 <!-- <div class="row"> -->
                                     <!-- <div class="col-md-12"> -->
 <!--                                        <div class="col-md-3">
