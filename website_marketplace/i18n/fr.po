@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_marketplace
+#    * website_marketplace
 #
 msgid ""
 msgstr ""
@@ -18,65 +18,65 @@ msgstr ""
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "Abort"
-msgstr ""
+msgstr "Abandonner"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Accept"
-msgstr ""
+msgstr "Accepter"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Accepted"
-msgstr ""
+msgstr "Acceptée"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "Add reply"
-msgstr ""
+msgstr "Ajouter une réponse"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_minisearch_form
 #: view:website:website_marketplace.mp_search_form
 msgid "All"
-msgstr ""
+msgstr "Toutes"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Amount"
-msgstr ""
+msgstr "Montant"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:1144
 #, python-format
 msgid "Announcement successfully saved"
-msgstr ""
+msgstr "L’Annonce a été enregistrèe avec succès"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Available"
-msgstr ""
+msgstr "Disponible"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Cancelled"
-msgstr ""
+msgstr "Annulée"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
@@ -85,47 +85,47 @@ msgstr ""
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 msgid "City"
-msgstr ""
+msgstr "Ville"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "Close"
-msgstr ""
+msgstr "Clore"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_search
 msgid "Create your Announcement"
-msgstr ""
+msgstr "Créer votre Annonce"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_search_form
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Currency"
-msgstr ""
+msgstr "Devise"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:727
 #, python-format
 msgid "Currency cannot have multiple unit prices"
-msgstr ""
+msgstr "Une devise ne peut pas avoir plusieurs prix unitaire"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "DD/MM/YYYY"
-msgstr ""
+msgstr "JJ/MM/AAAA"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:241
 #, python-format
 msgid "Date to must be greater or equal to date from"
-msgstr ""
+msgstr "La seconde date doit être égale ou supérieure à la première"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
@@ -133,23 +133,23 @@ msgstr ""
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Draft"
-msgstr ""
+msgstr "Brouillon"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "Edit"
-msgstr ""
+msgstr "Modifier"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_search
 msgid "Found nothing?"
-msgstr ""
+msgstr "Rien trouvé ?"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
@@ -157,24 +157,24 @@ msgstr ""
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "From"
-msgstr ""
+msgstr "De"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_search_form
 msgid "From Who?"
-msgstr ""
+msgstr "De qui ?"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_search_form
 msgid "From who?"
-msgstr ""
+msgstr "De qui ?"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Groups"
-msgstr ""
+msgstr "Groupes"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
@@ -182,110 +182,110 @@ msgstr ""
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "How much?"
-msgstr ""
+msgstr "Combien ?"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_minisearch_form
 #: view:website:website_marketplace.mp_search_form
 msgid "I'm searching"
-msgstr ""
+msgstr "Je recherche"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Infinite"
-msgstr ""
+msgstr "Illimitée"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Invoice"
-msgstr ""
+msgstr "Facturer"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Invoiced"
-msgstr ""
+msgstr "Facturée"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "Login"
-msgstr ""
+msgstr "Se connecter"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "Make a reply"
-msgstr ""
+msgstr "Faire une réponse"
 
 #. module: website_marketplace
 #: model:website.menu,name:website_marketplace.menu_marketplace
 msgid "Marketplace"
-msgstr ""
+msgstr "Place de Marché"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "My Reply"
-msgstr ""
+msgstr "Mes Réponses"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_search
 msgid "Next page"
-msgstr ""
+msgstr "Page suivante"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:264
 #, python-format
 msgid "Only announcement from USA can have state"
-msgstr ""
+msgstr "Seules les annnonces faites aux USA ont un Etat"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_search
 msgid "Our Offers"
-msgstr ""
+msgstr "Nos Offres"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_search
 msgid "Our Wants"
-msgstr ""
+msgstr "Nos Demandes"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Paid"
-msgstr ""
+msgstr "Payée"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Pay"
-msgstr ""
+msgstr "Payer"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Payment received"
-msgstr ""
+msgstr "Payment reçu"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:749
 #, python-format
 msgid "Please input quantity"
-msgstr ""
+msgstr "Svp, entrer la quantité"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_search
 msgid "Previous page"
-msgstr ""
+msgstr "Page précédente"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Publish"
-msgstr ""
+msgstr "Publier"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Published"
-msgstr ""
+msgstr "Publiée"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
@@ -293,191 +293,191 @@ msgstr ""
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Quantity"
-msgstr ""
+msgstr "Quantité"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:276
 #, python-format
 msgid "Quantity cannot be 0.0"
-msgstr ""
+msgstr "La Quantité ne peut être 0"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:757
 #, python-format
 msgid "Quantity should be a float number e.g. 12.99"
-msgstr ""
+msgstr "La quantité devrait être un nombre, par ex : 12.99"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Quantity?"
-msgstr ""
+msgstr "Quantité ?"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "Re-open"
-msgstr ""
+msgstr "Ré-ouvrir"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Refund"
-msgstr ""
+msgstr "Rembourser"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "Register"
-msgstr ""
+msgstr "S’enregistrer"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Reject"
-msgstr ""
+msgstr "Rejeter"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Rejected"
-msgstr ""
+msgstr "Rejetée"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Reply has been saved successfully"
-msgstr ""
+msgstr "La réponse a été sauvée avec succès"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_minisearch_form
 #: view:website:website_marketplace.mp_search_form
 msgid "Search"
-msgstr ""
+msgstr "Rechercher"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Set draft"
-msgstr ""
+msgstr "Mettre en brouillon"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 msgid "Street"
-msgstr ""
+msgstr "Rue"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 msgid "Street2"
-msgstr ""
+msgstr "Rue 2"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 msgid "Submit"
-msgstr ""
+msgstr "Soumettre"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Subtotal"
-msgstr ""
+msgstr "Sous-total"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Tags"
-msgstr ""
+msgstr "Mot clé"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:273
 #, python-format
 msgid "Title cannot be empty"
-msgstr ""
+msgstr "Le titre ne peut être vide"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_minisearch_form
 #: view:website:website_marketplace.mp_search_form
 msgid "To find"
-msgstr ""
+msgstr "Trouver"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_minisearch_form
 #: view:website:website_marketplace.mp_search_form
 msgid "To get"
-msgstr ""
+msgstr "Recevoir"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_minisearch_form
 #: view:website:website_marketplace.mp_search_form
 msgid "To offer"
-msgstr ""
+msgstr "Donner"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "Unit price"
-msgstr ""
+msgstr "Prix unitaire"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:767
 #, python-format
 msgid "Unit price should be a float number e.g. 12.99"
-msgstr ""
+msgstr "Le prix unitaire devrait être un nombre, par ex : 12.99"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Units"
-msgstr ""
+msgstr "Unités"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Update reply"
-msgstr ""
+msgstr "Mettre à jour"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
 msgid "Upload new document"
-msgstr ""
+msgstr "Charger un nouveau document"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 msgid "Upload new picture"
-msgstr ""
+msgstr "Charger une nouvelle image"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.new_announcement
 msgid "Upload picture"
-msgstr ""
+msgstr "Charger une image"
 
 #. module: website_marketplace
 #: model:marketplace.announcement.category,name:website_marketplace.user_tags_category
 msgid "User Tags"
-msgstr ""
+msgstr "Mots clés d’utilisateur"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Waiting confirm"
-msgstr ""
+msgstr "En attente de confirmation"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Waiting votes"
-msgstr ""
+msgstr "En attende d’avis"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
@@ -486,7 +486,7 @@ msgstr ""
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
 msgid "When?"
-msgstr ""
+msgstr "Quand ?"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
@@ -494,48 +494,47 @@ msgstr ""
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Where?"
-msgstr ""
+msgstr "Où ?"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.view_announcement
 msgid "Who has replied?"
-msgstr ""
+msgstr "Qui a répondu ?"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:337
 #, python-format
 msgid "You can't create tags if category is not selected"
-msgstr ""
+msgstr "Vous ne pouvez pas créer de Mot Clé si la catégorie n’est pas spécifiée"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
-msgid "Zip"
-msgstr ""
+msgid "Zip code"
+msgstr "Code postal"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_single_item
 msgid "[Draft]"
-msgstr ""
+msgstr "[Brouillon]"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "available"
-msgstr ""
+msgstr "disponible"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "none"
-msgstr ""
+msgstr "aucune"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_single_item
 msgid "replies"
-msgstr ""
+msgstr "réponses"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "to submit a reply"
-msgstr ""
-
+msgstr "soumettre une réponse"

@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_community_home
+#    * website_community_home
 #
 msgid ""
 msgstr ""
@@ -18,50 +18,49 @@ msgstr ""
 #. module: website_community_home
 #: view:website:website_community_home.homepage
 msgid "A title homepage"
-msgstr ""
+msgstr "Accueil"
 
 #. module: website_community_home
 #: view:website:website_community_home.homepage
 msgid "Diagram"
-msgstr ""
+msgstr "Schéma"
 
 #. module: website_community_home
 #: view:website:website_community_home.homepage
 msgid "Last events"
-msgstr ""
+msgstr "Evénénements récents"
 
 #. module: website_community_home
 #: view:website:website_community_home.homepage
 msgid "Next page"
-msgstr ""
+msgstr "Page suivante"
 
 #. module: website_community_home
 #: view:website:website_community_home.homepage
 msgid "Not a member yet?"
-msgstr ""
+msgstr "Vous n’êtes pas encore membre ?"
 
 #. module: website_community_home
 #: view:website:website_community_home.homepage
 msgid "Our Offers"
-msgstr ""
+msgstr "Nos Offres"
 
 #. module: website_community_home
 #: view:website:website_community_home.homepage
 msgid "Our Wants"
-msgstr ""
+msgstr "Nos Demandes"
 
 #. module: website_community_home
 #: view:website:website_community_home.homepage
 msgid "Our reference"
-msgstr ""
+msgstr "Nos références"
 
 #. module: website_community_home
 #: view:website:website_community_home.homepage
 msgid "Previous page"
-msgstr ""
+msgstr "Page précédente"
 
 #. module: website_community_home
 #: view:website:website_community_home.homepage
 msgid "Sign up"
-msgstr ""
-
+msgstr "Souscrire"

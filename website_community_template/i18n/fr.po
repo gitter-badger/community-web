@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_community_template
+#    * website_community_template
 #
 msgid ""
 msgstr ""
@@ -17,325 +17,324 @@ msgstr ""
 
 #. module: website_community_template
 #: view:website:website.layout
-msgid ", common good tools fabrics, based on"
-msgstr ""
+msgid ", common good wealth actualization tools factory, based on"
+msgstr ", fabrique d’outils d’actualisation de richesse en bien commun, basé sur"
 
 #. module: website_community_template
 #: view:website:website.404
 msgid "404 Not Found"
-msgstr ""
+msgstr "404 non trouvé"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "About Us"
-msgstr ""
+msgstr "A propos de Nous"
 
 #. module: website_community_template
 #: view:website:auth_signup.reset_password
 #: view:website:auth_signup.signup
 msgid "Back to Login"
-msgstr ""
+msgstr "Retour à la connexion"
 
 #. module: website_community_template
 #: view:website:website_community_template.register_membership
 msgid "Become a"
-msgstr ""
+msgstr "Devenir un"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Contact Us"
-msgstr ""
+msgstr "Contactez nous"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "Currency"
-msgstr ""
+msgstr "Devise"
 
 #. module: website_community_template
 #: view:website:web.login
 msgid "Email address"
-msgstr ""
+msgstr "Adresse email"
 
 #. module: website_community_template
 #: view:website:auth_signup.reset_password
 msgid "Email address or username"
-msgstr ""
+msgstr "Adresse email ou nom d’utilisateur"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Feature Tour"
-msgstr ""
+msgstr "Visite guidée des fonctionnalités"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Follow Us"
-msgstr ""
+msgstr "Suiver nous"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "From"
-msgstr ""
+msgstr "De"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "From Who?"
-msgstr ""
+msgstr "De Qui ?"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "From who?"
-msgstr ""
+msgstr "De Qui ?"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "How It Works"
-msgstr ""
+msgstr "Comment cela fonctionne"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "How much?"
-msgstr ""
+msgstr "Combien ?"
 
 #. module: website_community_template
 #: view:website:website_community_template.register_part_2
 msgid "I agree with the"
-msgstr ""
+msgstr "J’accepte le"
 
 #. module: website_community_template
 #: view:website:website_community_template.register_part_2
 msgid "I am"
-msgstr ""
+msgstr "Je suis"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "I'm searching"
-msgstr ""
+msgstr "Je recherche"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "Invite your friends to join our network"
-msgstr ""
+msgstr "Inviter vos amis à rejoindre notre réseau"
 
 #. module: website_community_template
 #: view:website:website.404
 #: view:website:website.layout
 msgid "Learn more"
-msgstr ""
+msgstr "En savoir plus"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Legal"
-msgstr ""
+msgstr "Légal"
 
 #. module: website_community_template
 #: view:website:web.login
 msgid "Log in"
-msgstr ""
+msgstr "Se connecter"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Logout"
-msgstr ""
+msgstr "Se déconnecter"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Market Place"
-msgstr ""
+msgstr "Place de Marché"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "Market Place Search"
-msgstr ""
+msgstr "Recherche sur la Place de Marché"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "My Profile"
-msgstr ""
+msgstr "Mon profil"
 
 #. module: website_community_template
 #: view:website:website_community_template.register_membership
 msgid "My membership"
-msgstr ""
+msgstr "Mon adhésion"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Odoo"
-msgstr ""
+msgstr "Odoo"
 
 #. module: website_community_template
 #: view:website:website.404
 msgid "Oops!"
-msgstr ""
+msgstr "Zut !"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Our Activity"
-msgstr ""
+msgstr "Nos activités"
 
 #. module: website_community_template
 #: view:website:web.login
 #: view:website:website_community_template.signup_fields
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Politique de confidentialité"
 
 #. module: website_community_template
 #: view:website:website_community_template.register_part_2
 msgid "Register"
-msgstr ""
+msgstr "S’enregistrer"
 
 #. module: website_community_template
 #: view:website:website_community_template.signup_fields
 msgid "Repeat Password"
-msgstr ""
+msgstr "Répéter le mot de passe"
 
 #. module: website_community_template
 #: view:website:auth_signup.reset_password
 msgid "Reset password"
-msgstr ""
+msgstr "Réinitialiser le mot de passe"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "Search"
-msgstr ""
+msgstr "Rechercher"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "See the"
-msgstr ""
+msgstr ""Voir le
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Set It Up"
-msgstr ""
+msgstr "Configurer le"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Sign Up"
-msgstr ""
+msgstr "Souscrire"
 
 #. module: website_community_template
 #: view:website:website.404
 msgid "Sign in"
-msgstr ""
+msgstr "S’enregistrer"
 
 #. module: website_community_template
 #: view:website:auth_signup.signup
 #: view:website:website.404
 msgid "Sign up"
-msgstr ""
+msgstr "Souscrire"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Sign up now, it's FREE"
-msgstr ""
+msgstr "Souscriver maintenant, c’est GRATUIT"
 
 #. module: website_community_template
 #: view:website:website.404
 msgid "Sorry, we weren't able to find the page you requested"
-msgstr ""
+msgstr "Désolé, nous n’avons pas pu trouver la page requise"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Support"
-msgstr ""
+msgstr "Support"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Terms of Service"
-msgstr ""
+msgstr "Conditions d'utilisation"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "To find"
-msgstr ""
+msgstr "Trouver"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "To get"
-msgstr ""
+msgstr "Recevoir"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "To offer"
-msgstr ""
+msgstr "Donner"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Toggle navigation"
-msgstr ""
+msgstr "navigation bascule"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Valeureux"
-msgstr ""
+msgstr "Valeureux"
 
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Wezer, designed by"
-msgstr ""
+msgstr "Wezer, conçu par"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "When?"
-msgstr ""
+msgstr "Quand ?"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "Where?"
-msgstr ""
+msgstr "Où ?"
 
 #. module: website_community_template
 #: view:website:website_community_template.signup_fields
 msgid "Your email"
-msgstr ""
+msgstr "Votre email"
 
 #. module: website_community_template
 #: view:website:website_community_template.signup_fields
 msgid "Your name"
-msgstr ""
+msgstr "Votre nom"
 
 #. module: website_community_template
 #: view:website:website_community_template.register_part_2
 msgid "terms and conditions"
-msgstr ""
+msgstr "Conditions d’utilisation"
 
 #. module: website_community_template
 #: view:website:website_community_template.register_membership
 msgid "— You are a"
-msgstr ""
-
+msgstr "— Vous êtes un"
