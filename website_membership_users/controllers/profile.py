@@ -345,7 +345,7 @@ class profile_controller(http.Controller):
                 skill_id = skill_category_pool.create(cr, uid, {'name': skill['name']}, context=context)
                 data['skills']['existing'].append({'id': skill_id, 'name': skill['name']})
         # Find default user tags category
-        tag_category_id = data_pool.get_object_reference(cr, uid, 'website_membership_users', 'user_tags_category')[1]
+        tag_category_id = data_pool.get_object_reference(cr, uid, 'website_marketplace', 'user_tags_category')[1]
         # Create new interests (marketplace.tag)
         for tag in data['interests']['new']:
             if not tag['name']:
