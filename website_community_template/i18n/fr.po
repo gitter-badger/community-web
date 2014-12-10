@@ -312,12 +312,12 @@ msgstr "Wezer, conçu par"
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "When?"
-msgstr "Quand ?"
+msgstr "Quand"
 
 #. module: website_community_template
 #: view:website:website.snippets
 msgid "Where?"
-msgstr "Où ?"
+msgstr "Où"
 
 #. module: website_community_template
 #: view:website:website_community_template.signup_fields

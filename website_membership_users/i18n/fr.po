@@ -316,7 +316,7 @@ msgstr "Mot clé"
 #. module: website_membership_users
 #: field:marketplace.announcement,date_to:0
 msgid "To"
-msgstr "à"
+msgstr "A"
 
 #. module: website_membership_users
 #: view:website:website_membership_users.profile_edit_activity
@@ -350,7 +350,7 @@ msgstr "Où"
 #. module: website_membership_users
 #: view:website:website_membership_users.member_list_view
 msgid "Where?"
-msgstr "Où ?"
+msgstr "Où"
 
 #. module: website_membership_users
 #: view:website:website_membership_users.profile_edit_activity
