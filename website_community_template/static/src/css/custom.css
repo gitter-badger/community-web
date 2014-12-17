@@ -1,0 +1,23 @@
+.btn-primary {
+
+}
+
+/* add for space under images,photos and buttons*/
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    padding-bottom: 10px;
+}
+
+/* photos alignment */
+.col-md-12 {
+    padding-left: 1px;
+}
+
+/* add for space under text area and buttons */
+.form-control {
+    margin-bottom: 10px;
+}
+
+/* alignment annoucment status */
+.mt0 {
+    margin-right: 20px;
+}

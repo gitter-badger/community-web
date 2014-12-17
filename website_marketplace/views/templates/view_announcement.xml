@@ -31,6 +31,8 @@
                         </t>
                     </div>
 
+<!-- Moved by florent @valeureux *************************
+
                     <div class="container">
                         <div class="col-md-12">
                             <t t-if="announcement.is_user">
@@ -38,7 +40,7 @@
                             </t>
                         </div>
                     </div>
-                    
+************************************** -->
                     <section class="container mt32">
         
                         <div class="row">
@@ -121,12 +123,14 @@
                                 <div>
                                     <t t-if="announcement.state == 'draft'">
                                         <t t-if="announcement.is_user">
+                                            <a t-att-href="'/marketplace/announcement_detail/%s/edit' % announcement.id" class="btn btn-primary" role="button">Edit</a>
                                             <a t-attf-href="/marketplace/announcement/#{announcement.id}/draft_cancel" class="btn btn-primary" role="button">Cancel</a>
                                             <a t-attf-href="/marketplace/announcement/#{announcement.id}/draft_open" class="btn btn-primary" role="button">Publish</a>
                                         </t>
                                     </t>
                                     <t t-if="announcement.state == 'open'">
                                         <t t-if="announcement.is_user">
+                                            <a t-att-href="'/marketplace/announcement_detail/%s/edit' % announcement.id" class="btn btn-primary" role="button">Edit</a>
                                             <a t-attf-href="/marketplace/announcement/#{announcement.id}/open_cancel" class="btn btn-primary" role="button">Cancel</a>
                                             <a t-attf-href="/marketplace/announcement/#{announcement.id}/open_done" class="btn btn-primary" role="button">Close</a>
                                         </t>
@@ -134,11 +138,13 @@
                                     <t t-if="announcement.state == 'done'">
                                         <t t-if="announcement.is_user">
                                             <a t-attf-href="/marketplace/announcement/#{announcement.id}/done_open" class="btn btn-primary" role="button">Re-open</a>
+                                             <a t-att-href="'/marketplace/announcement_detail/%s/edit' % announcement.id" class="btn btn-primary" role="button">Edit</a>
                                         </t>
                                     </t>
                                     <t t-if="announcement.state == 'cancel'">
                                         <t t-if="announcement.is_user">
                                             <a t-attf-href="/marketplace/announcement/#{announcement.id}/cancel_draft" class="btn btn-primary" role="button">Set draft</a>
+                                             <a t-att-href="'/marketplace/announcement_detail/%s/edit' % announcement.id" class="btn btn-primary" role="button">Edit</a>
                                         </t>
                                     </t>
                                 </div>
