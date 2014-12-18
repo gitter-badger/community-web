@@ -5,8 +5,9 @@
 
             <t t-call="website.layout">
 
+                 <!-- removed by florent@valeureux
                 <t t-call="website_marketplace.mp_search_form"/>
-
+                 -->
                 <div class="oe_structure"/>
                     <div class="oe_structure">
 
