@@ -57,6 +57,12 @@
 				background-image:url('img/logo_valeureux.png');
 				@include background-size(100px, 70px);
 			}
+
+            &.logo-wezer {
+				@include size(100px, 70px);
+				background-image:url('img/logo.png');
+				@include background-size(100px, 70px);
+			}
 		}
 	}
 	
