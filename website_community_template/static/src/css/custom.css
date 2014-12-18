@@ -27,7 +27,7 @@
   text-overflow: ellipsis;
   word-wrap: break-word;
   overflow: hidden;
-  max-height: 3em;
+  max-height: 6em;
   line-height: 1em;
   text-overflow: ellipsis;
 }
