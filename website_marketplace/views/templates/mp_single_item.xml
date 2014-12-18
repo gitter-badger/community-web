@@ -28,7 +28,7 @@
                                 </h3>
                             </div>
                             <div class="row">
-                                <p class="text-justify" t-field="item.description"/>
+                                <p class="text-justify-search" t-field="item.description" style=""/>
                             </div>
                         </div>
                     </div>

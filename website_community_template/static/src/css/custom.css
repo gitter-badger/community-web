@@ -21,3 +21,12 @@
 .mt0 {
     margin-right: 20px;
 }
+
+.text-justify-search {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3em;
+  line-height: 1em;
+  text-overflow: ellipsis;
+}
