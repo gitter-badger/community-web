@@ -31,6 +31,13 @@ openerp.website.theme.views['layout'] = openerp.Class.extend({
             dateFormat: JQueryDateFormat
         });
 
+         $('.date-picker-profil-edit').datepicker({
+            dateFormat: JQueryDateFormat,
+            changeYear: true,
+            changeMonth: true
+        });
+
+
         self.bind_dynamiclist($('.dynamic-list'));
 
         // FILESELECT CUSTOM EVENT
@@ -71,7 +78,7 @@ openerp.website.theme.views['layout'] = openerp.Class.extend({
         });
 
         $('.date-picker').keypress(function(e) {
-            e.preventDefault();
+           e.preventDefault();
         });
 
     },

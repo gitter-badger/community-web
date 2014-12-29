@@ -50,6 +50,9 @@
                                                         <li><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
                                                     </ul>
                                                 </li>
+                                                <li>
+ <!-- email ici -->
+                                                </li>
                                             </ul>
                                         </div>
                                         <!-- /.navbar-collapse -->

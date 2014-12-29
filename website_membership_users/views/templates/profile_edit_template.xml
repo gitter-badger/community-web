@@ -52,7 +52,7 @@
                                 <label class="col-md-4 control-label" for="birthdate">Birthdate</label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <input name="birthdate" id="birthdate" t-att-value="profile['partner']['birthdate']" t-att-placeholder="date_placeholder" type="text" class="date-picker form-control" />
+                                        <input name="birthdate" id="birthdate" t-att-value="profile['partner']['birthdate']" t-att-placeholder="date_placeholder" type="text" class="date-picker-profil-edit form-control" />
                                         <label for="birthdate" class="input-group-addon btn btn-default"><span class="fa fa-calendar"></span></label>
                                     </div>
                                     <t t-if="'birthdate' in errors">
