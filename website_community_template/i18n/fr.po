@@ -89,7 +89,7 @@ msgstr "Visite guidée des fonctionnalités"
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Follow Us"
-msgstr "Suiver nous"
+msgstr "Suivez nous"
 
 #. module: website_community_template
 #: view:website:website.snippets
@@ -186,6 +186,21 @@ msgstr "Mon adhésion"
 #: view:website:website.layout
 msgid "Odoo"
 msgstr "Odoo"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "Create new announce"
+msgstr "Créer une nouvelle annonce"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "View other membrers"
+msgstr "Voir les autres membres"
+
+#. module: website_community_template
+#: view:website:website.layout
+msgid "My account"
+msgstr "Mon compte"
 
 #. module: website_community_template
 #: view:website:website.404
