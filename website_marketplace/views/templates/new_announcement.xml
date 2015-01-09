@@ -76,25 +76,6 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-8 text-right">
-                                    <div class="text-left col-md-9 m16 mb16">
-                                        <div class="row mt16">
-                                            <div class="col-md-12">
-
-                                                <!-- TODO: make multiple upload possible-->
-                                                <span class="btn btn-primary btn-file">
-                                                    Upload new document 
-                                                    <input type="file" name="document" multiple="multiple"/>
-                                                </span>  
-                                                <div class="files-to-upload mt8 mb8"/>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                            </div>
-                
-                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="col-md-12">
                                         
@@ -103,6 +84,14 @@
                                             <input type="file" name="picture"/>
                                         </span>  
                                         <div class="files-to-upload mt8 mb8"/>
+
+                                          <!-- TODO: make multiple upload possible-->
+                                                <span class="btn btn-primary btn-file">
+                                                    Upload new document
+                                                    <input type="file" name="document" multiple="multiple"/>
+                                                </span>
+                                          <div class="files-to-upload mt8 mb8"/>
+
 
                                     </div>
                                 </div>
