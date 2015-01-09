@@ -29,7 +29,7 @@
                     <section class="container mt32">
                         <form action="/marketplace/announcement_detail/new/save" method="POST" enctype="multipart/form-data">
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-12">
                                     <div class="form-horizontal col-md-12">
                                         <div class="form-group">
                 

@@ -315,8 +315,10 @@ msgstr "Mot clé"
 
 #. module: website_membership_users
 #: field:marketplace.announcement,date_to:0
+#: view:website:website_membership_users.member_list_view
 msgid "To"
 msgstr "A"
+
 
 #. module: website_membership_users
 #: view:website:website_membership_users.profile_edit_activity

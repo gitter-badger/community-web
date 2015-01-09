@@ -107,6 +107,11 @@ msgid "From who?"
 msgstr "De Qui ?"
 
 #. module: website_community_template
+#: view:website:website.snippets
+msgid "To"
+msgstr "A"
+
+#. module: website_community_template
 #: view:website:website.layout
 msgid "Home"
 msgstr "Accueil"
@@ -246,7 +251,7 @@ msgstr "Rechercher"
 #. module: website_community_template
 #: view:website:website.layout
 msgid "See the"
-msgstr ""Voir le
+msgstr "Voir le"
 
 #. module: website_community_template
 #: view:website:website.layout

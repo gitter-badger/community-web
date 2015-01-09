@@ -160,6 +160,14 @@ msgid "From"
 msgstr "De"
 
 #. module: website_marketplace
+#: view:website:website_marketplace.edit_announcement
+#: view:website:website_marketplace.mp_search_form
+#: view:website:website_marketplace.new_announcement
+#: view:website:website_marketplace.view_announcement
+msgid "to"
+msgstr "A"
+
+#. module: website_marketplace
 #: view:website:website_marketplace.mp_search_form
 msgid "From Who?"
 msgstr "De qui ?"

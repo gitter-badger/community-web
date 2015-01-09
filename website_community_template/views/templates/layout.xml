@@ -33,7 +33,7 @@
                                                 <li class="hidden"><a href="#" class="btn-nolink"><span class="weezer-icon weezer-dollar"></span></a></li>
                                             </ul>
                                             <ul class="nav navbar-nav pull-right">
-                                                <li><a href="/marketplace/member_list"><span class="weezer-icon weezer-group field-tip"><span class="tip-content">View other membrers</span></span></a></li>
+                                                    <li><a href="/marketplace/member_list"><span class="weezer-icon weezer-group field-tip"><span class="tip-content">View other membrers</span></span></a></li>
                                                 <li class="hidden"><a href="/page/website.contactus" class="btn-nolink"><span class="weezer-icon weezer-envelope"></span></a></li>
                                                 <li t-ignore="true" t-if="website.user_id == user_id">
                                                     <a href="/web/login">
@@ -51,7 +51,7 @@
                                                     </ul>
                                                 </li>
                                                 <li>
- <!-- email ici -->
+                                                <!-- email ici -->
                                                 </li>
                                             </ul>
                                         </div>

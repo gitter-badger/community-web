@@ -107,6 +107,11 @@ msgid "From who?"
 msgstr ""
 
 #. module: website_community_template
+#: view:website:website.snippets
+msgid "To"
+msgstr "A"
+
+#. module: website_community_template
 #: view:website:website.layout
 msgid "Home"
 msgstr ""
