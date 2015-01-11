@@ -312,7 +312,7 @@ msgstr "Donner"
 #. module: website_community_template
 #: view:website:website.layout
 msgid "Toggle navigation"
-msgstr "navigation bascule"
+msgstr "Basculer la navigation"
 
 #. module: website_community_template
 #: view:website:website.layout

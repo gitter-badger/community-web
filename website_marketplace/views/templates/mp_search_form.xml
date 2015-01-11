@@ -69,7 +69,7 @@
                                                     <label for="filter-from" class="input-group-addon btn btn-default"><span class="fa fa-calendar"></span></label>
                                                 </div>
                                                 <label class="sr-only">To</label>
-                                                <div class="input-group">
+                                                <div class="input-group mb16">
                                                     <input name="date_to" id="filter-to" type="text" placeholder="To" class="date-picker form-control" t-att-value="request.httprequest.args.get('date_to','')"/>
                                                     <label for="filter-to" class="input-group-addon btn btn-default"><span class="fa fa-calendar"></span></label>
                                                 </div>
