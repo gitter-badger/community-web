@@ -67,7 +67,7 @@ class SearchController(http.Controller):
             if ttype:
                 sql += 'AND a.type = \'%s\' ' % ('want' if ttype == 'to_offer' else 'offer')
             if data.get('name'): 
-                sql += 'AND a.name ILIKE %(name)s '
+                sql += 'AND (a.name ILIKE %(name)s OR a.description ILIKE %(name)s)'
                 params.update({'name': '%'+data.get('name')+'%'})
             if data.get('categories', []):
                 sql += 'AND a.category_id IN %(category)s '
