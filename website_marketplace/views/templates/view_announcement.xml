@@ -44,7 +44,7 @@
                     <section class="container mt32">
         
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <form class="form-horizontal col-md-12">
                                     <div class="form-group">
                                         <label class="col-md-1 no-padding-top control-label" for="category">Category</label>
@@ -91,17 +91,7 @@
                                     </div>
                                 </form>
                           </div>
-                          <div class="col-md-4">
-                            <ul class="wizard pull-right mt0">
-                                <li t-att-class="announcement.state == 'draft' and 'text-primary' or 'text-muted'">Draft<span class="chevron"></span></li>
-                                <li t-att-class="announcement.state == 'open' and 'text-primary' or 'text-muted'">Published<span class="chevron"></span></li>
-                                <li t-att-class="announcement.state == 'done' and 'text-primary' or 'text-muted'">Close<span class="chevron"></span></li>
-                                <t t-if="announcement.state == 'cancel'">
-                                    <li t-att-class="announcement.state == 'cancel' and 'text-primary' or 'text-muted'">Abort<span class="chevron"></span></li>
-                                </t>
-                            </ul>
-                        </div>
-                        </div>
+                                                </div>
             
                         <div class="row">
                             <div class="col-md-8 text-right">
@@ -157,7 +147,14 @@
                             </div>
             
                             <div class="col-md-4">
-                               
+                                <ul class="wizard pull-left mt0">
+                                    <li t-att-class="announcement.state == 'draft' and 'text-primary' or 'text-muted'">Draft<span class="chevron"></span></li>
+                                    <li t-att-class="announcement.state == 'open' and 'text-primary' or 'text-muted'">Published<span class="chevron"></span></li>
+                                    <li t-att-class="announcement.state == 'done' and 'text-primary' or 'text-muted'">Close<span class="chevron"></span></li>
+                                    <t t-if="announcement.state == 'cancel'">
+                                        <li t-att-class="announcement.state == 'cancel' and 'text-primary' or 'text-muted'">Abort<span class="chevron"></span></li>
+                                    </t>
+                                </ul>
                                 <div class="form-group mt16">
                                     <div class="col-md-9 pull-right">
                                       <input type="text" class="form-control" disabled="disabled" t-att-value="author.name"/>
