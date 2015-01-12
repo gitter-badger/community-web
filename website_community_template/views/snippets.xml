@@ -22,9 +22,9 @@
                                 <div class="form-group">
                                     <div class="col-md-3">
                                         <select class="selectpicker form-control" name="type" style="display: none;">
+                                            <option value="to_find" t-att-selected="'selected' if request.httprequest.args.get('type') == 'to_find' else None">Trouver</option>
                                             <option value="to_get" t-att-selected="'selected' if request.httprequest.args.get('type') == 'to_get' else None">Recevoir</option>
                                             <option value="to_offer" t-att-selected="'selected' if request.httprequest.args.get('type') == 'to_offer' else None">Offrir</option>
-                                            <option value="to_find" t-att-selected="'selected' if request.httprequest.args.get('type') == 'to_find' else None">Trouver</option>
                                         </select>
                                     </div>
 
