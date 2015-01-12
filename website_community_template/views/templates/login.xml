@@ -31,7 +31,7 @@
                             <p class="alert alert-success mt32" t-if="message">
                                 <t t-esc="message"/>
                             </p>
-                            <h5 class="footer-title">Powered by <a href="http://www.wezer.org" class="footer-logo logo-wezer">Wezer</a></h5>
+                            <h5 class="footer-title">Powered by <a href="http://www.wezer.org">Wezer</a></h5>
                         </div>
                     </div>
                 </div>
