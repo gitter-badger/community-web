@@ -11,7 +11,7 @@
                     <section class="oe_snippet_body">
             <!-- START: Search Jumbotron -->
             <form id="searchform" class="form" method="GET" action="/marketplace/search">
-                <section class="jumbotron pt32 pb16 mb0">
+                <section class="jumbotron mb32 pt8 mt0 pb8">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-2 pt32">
@@ -27,11 +27,9 @@
                                             <option value="to_offer" t-att-selected="'selected' if request.httprequest.args.get('type') == 'to_offer' else None">Offrir</option>
                                         </select>
                                     </div>
-
                                     <div class="col-md-5">
                                         <input type="search" class="form-control" name="name"  placeholder="Search"/>
                                     </div>
-
                                     <div class="col-md-3">
                                         <!-- python code to get categories -->
                                         <t t-set="ann_categories_obj" t-value="request.registry['marketplace.announcement.category']"/>
@@ -43,16 +41,13 @@
                                             </t>
                                         </select>
                                     </div>
-
                                     <div class="col-md-1">
                                         <button class="btn btn-primary" type="submit"><span class="fa fa-search" type="submit"></span></button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </section>
             </form>
             <!-- END: Search Jumbotron -->
