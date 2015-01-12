@@ -270,7 +270,7 @@ msgstr "Payer"
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
 msgid "Payment received"
-msgstr "Payment reçu"
+msgstr "Paiement reçu"
 
 #. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:749
