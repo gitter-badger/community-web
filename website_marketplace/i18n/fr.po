@@ -33,7 +33,7 @@ msgstr "Acceptée"
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
 msgid "Add reply"
-msgstr "Ajouter une réponse"
+msgstr "Répondre"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.mp_minisearch_form
