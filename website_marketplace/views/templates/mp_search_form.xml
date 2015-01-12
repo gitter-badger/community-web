@@ -5,7 +5,7 @@
         <template id="mp_search_form" name="Marketplace Search">
             <section>
                 <form id="searchform" class="form" method="GET" action="/marketplace/search">
-                    <section class="jumbotron mb32 pt8 mt0 pb8">
+                    <section class="jumbotron mb32 pt16 mt0 pb16 mb0">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-2 mt8 col-md-offset-1">

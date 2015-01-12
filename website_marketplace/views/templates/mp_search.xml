@@ -9,7 +9,6 @@
                     <div class="oe_structure"/>
                     <div class="oe_structure">
                         <section class="clearfix">
-                            
                             <!-- START: Scrollable -->
                             <div class="col-md-12 page-header pb8">
 
@@ -17,6 +16,9 @@
 
                                     <!-- START: Our wants -->
                                     <div class="col-md-6 clearfix">
+                                        <t t-if="page &gt; 1">
+                                            <a t-att-href="prev_url" class="btn text-center btn-primary pull-left">Previous page</a>
+                                        </t>
                                         <div class="row">
                                             <h3 class="text-center page-header mb8">Our Wants</h3>
                                         </div>
@@ -30,6 +32,9 @@
                                      
                                     <!-- START: Our offers -->
                                     <div class="col-md-6 clearfix">
+                                        <t t-if="page &lt; page_count">
+                                            <a t-att-href="next_url" class="btn text-center btn-primary pull-right">Next page</a>
+                                        </t>
                                         <div class="row">
                                             <h3 class="text-center page-header mb8">Our Offers</h3>
                                         </div>
@@ -45,7 +50,7 @@
                                 
                             </div>
                             <!-- END: Scrollable -->
-                            <div class="col-md-12 mt16 mb32">
+                            <div class="col-md-12 mt0 mb8">
                                 <t t-if="page &gt; 1">
                                     <a t-att-href="prev_url" class="btn text-center btn-primary pull-left">Previous page</a>
                                 </t>
