@@ -18,16 +18,16 @@
                             <h5 t-field="member.comment"/>
                         </div>
                         <div class="col-md-4">
-                            <t t-foreach="member.member_lines" t-as="line">test1
+                            <t t-foreach="member.member_lines" t-as="line">
                                 <span class="badge badge-warning pull-right mt4" t-field="line.membership_id.name"/>
                             </t>
                         </div>
                         
-                        <div class="col-md-6 two-line">
-                            <t t-foreach="member.skill_tag_ids" t-as="tag">test2
+                        <div class="col-md-6 three-line">
+                            <t t-foreach="member.skill_tag_ids" t-as="tag">
                                 <span class="label label-primary" t-field="tag.name"/>
                             </t>
-                            <t t-foreach="member.skill_category_ids" t-as="category">test3
+                            <t t-foreach="member.skill_category_ids" t-as="category">
                                 <span class="label label-primary" t-field="category.name"/>
                             </t>
                         </div>
@@ -36,7 +36,7 @@
                                 <thead>
                                     <tr>
                                         <th>Amount</th>
-                                        <th>Curreny</th>
+                                        <th>Currency</th>
                                     </tr>
                                 </thead>
                                 <tbody>

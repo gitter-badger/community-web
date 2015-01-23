@@ -5,16 +5,13 @@
             <t t-call="website.layout">
                 <!-- START: Search Jumbotron -->
                 <form action="/marketplace/member_list/search" method="get" id="searchform" class="form">
-                    <section class="jumbotron mb0 pt32 pb16">
+                        <section class="jumbotron pt8 mb0 pb8">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-2 pt8">
-                                    <img t-att-src="'data:image/png;base64,%s' % res_company.logo" class="img img-responsive"/>
-                                </div>
-                                <div class="col-md-2 pt32">
+                                <div class="col-md-2 pt0">
                                     <h4 class="pull-right">I'm searching</h4>
                                 </div>
-                                <div class="col-md-8 pt32">
+                                <div class="col-md-8 pt0">
                                     <div class="form-group">
                                         <div class="col-md-6">
                                             <input name="search_name" type="search" class="form-control" placeholder="Search" t-att-value="search_param.get('search_name')"/>
@@ -28,12 +25,6 @@
                         <div class="searchfilter">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-12 text-center pt8 pb16">
-                                        <div class="subtitle-search">
-                                            <div class="border"></div>
-                                            <h2 class="text-center">In</h2>
-                                        </div>
-                                    </div>
                                     <div class="col-md-2 col-md-offset-1">
                                         <div class="col-md-12 text-center">
                                             <label class="control-label">Where?</label>
