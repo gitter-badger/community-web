@@ -111,7 +111,7 @@ class member_list_controller(http.Controller):
             params.update({'search_name': '%' + data.get('search_name') + '%'})
 
         if data.get('location'):
-            sql += ' AND (a.city ILIKE %(location)s OR a.street ILIKE %(location)s OR a.street2 ILIKE %(location)s)'
+            sql += ' AND (a.city ILIKE %(location)s OR a.street ILIKE %(location)s OR a.street2 ILIKE %(location)s OR a.zip ILIKE %(location)s)'
             params.update({'location': '%'+data.get('location')+'%'})
 
         if data.get('tag'):

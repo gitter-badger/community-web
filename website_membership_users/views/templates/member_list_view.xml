@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="member_list_view" name="Mamber list">
+        <template id="member_list_view" name="Member list">
             <t t-call="website.layout">
                 <!-- START: Search Jumbotron -->
                 <form action="/marketplace/member_list/search" method="get" id="searchform" class="form">
