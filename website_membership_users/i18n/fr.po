@@ -142,6 +142,11 @@ msgid "I'm searching"
 msgstr "Je recherche"
 
 #. module: website_membership_users
+#: view:website:website_membership_users.member_list_view
+msgid "In"
+msgstr "Dans"
+
+#. module: website_membership_users
 #: view:website:website_membership_users.profile_edit_resources
 #: view:website:website_membership_users.profile_view
 msgid "Interests"
