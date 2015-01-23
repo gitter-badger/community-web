@@ -73,7 +73,7 @@ class SearchController(http.Controller):
                 sql += 'AND a.category_id IN %(category)s '
                 params.update({'category': tuple(data.get('categories', []))})
             if data.get('city'):
-                sql += 'AND (a.city ILIKE %(city)s OR a.street2 ILIKE %(city)s) '
+                sql += 'AND (a.city ILIKE %(city)s OR a.zip ILIKE %(city)s OR a.street ILIKE %(city)s OR a.street2 ILIKE %(city)s) '
                 params.update({'city': '%'+data.get('city')+'%'})
             if data.get('date_from'): 
                 date_from = datetime.strptime(data.get('date_from'), date_format)
