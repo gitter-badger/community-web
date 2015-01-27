@@ -129,7 +129,7 @@
                         <div class="row">
                             <div class="col-md-7 feedback-width">
                                 <div class="col-md-12">
-                                    <h5>Description</h5>
+                                    <h5>Your message</h5>
                                     <t t-if="reply.is_sender">
                                         <textarea rows="3" style="width:100%;" class="form-control" name="description"><t t-esc="reply.description"/></textarea>
                                     </t>

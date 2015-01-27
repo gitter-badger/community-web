@@ -132,8 +132,8 @@ msgstr "La seconde date doit être égale ou supérieure à la première"
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.single_reply
 #: view:website:website_marketplace.view_announcement
-msgid "Description"
-msgstr "Description"
+msgid "Your message"
+msgstr "Votre message"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.single_reply
