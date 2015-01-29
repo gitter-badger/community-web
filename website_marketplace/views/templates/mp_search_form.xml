@@ -49,6 +49,7 @@
 
                                         <div class="col-md-2">
                                             <t t-if="request.session.uid">
+                                                <input checked data-toggle="toggle" type="checkbox">
                                                 <label class="control-label">From Who?</label>
                                                 <label class="sr-only">From Who?</label>
                                                 <input name="from_who" id="filter-who" type="text" placeholder="From who?" class="form-control mb16" autocomplete="on" t-att-value="request.httprequest.args.get('from_who','')"/>
@@ -101,7 +102,7 @@
                                             <div class="clearfix"></div>
                                             <button class="btn btn-primary pull-right" type="submit"><span class="fa fa-search"></span></button>
                                         </div>
-                                                    
+
                                     </div>
                                 </div>
                             </div>
