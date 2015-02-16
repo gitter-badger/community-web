@@ -86,8 +86,15 @@
             opacity:0.8;
         }
 
- .required:after {
-    content: "*";
-    padding-left:1%;
-    color:red;
+ /* required fields during signup  ---------------------------------------------------------*/
+
+.form-control {
+    padding-right: 30px;
+}
+
+.form-control + .glyphicon {
+    position: absolute;
+    right: 0;
+    padding: 12px 27px;
+    color: red;
 }
