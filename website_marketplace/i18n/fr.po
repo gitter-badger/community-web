@@ -164,7 +164,7 @@ msgstr "De"
 #: view:website:website_marketplace.mp_search_form
 #: view:website:website_marketplace.new_announcement
 #: view:website:website_marketplace.view_announcement
-msgid "to"
+msgid "To"
 msgstr "A"
 
 #. module: website_marketplace
