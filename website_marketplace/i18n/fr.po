@@ -519,7 +519,7 @@ msgstr "Vous ne pouvez pas créer de Mot Clé si la catégorie n’est pas spéc
 #. module: website_marketplace
 #: view:website:website_marketplace.edit_announcement
 #: view:website:website_marketplace.new_announcement
-msgid "Zip code"
+msgid "Zip"
 msgstr "Code postal"
 
 #. module: website_marketplace
