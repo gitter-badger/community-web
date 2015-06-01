@@ -191,17 +191,19 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-xs-5 no-padding-right">
-                                            <select disabled="disabled" class="selectpicker form-control"> 
-                                                <t t-if="bool(announcement.state_id) == False">
-                                                    <option value="None" selected="selected"></option>                      
-                                                </t>
-                                                <t t-if="bool(announcement.state_id) != False">
-                                                    <option selected="selected"><t t-esc="announcement.state_id.name"/></option>                      
-                                                </t>
-                                            </select>
-                                        </div>
-                                        <div class="col-xs-7">
+                                        <t t-if="announcement.country_id == usa_id">
+                                            <div class="col-xs-5 no-padding-right">
+                                                <select disabled="disabled" class="selectpicker form-control">
+                                                    <t t-if="bool(announcement.state_id) == False">
+                                                        <option value="None" selected="selected"></option>
+                                                    </t>
+                                                    <t t-if="bool(announcement.state_id) != False">
+                                                        <option selected="selected"><t t-esc="announcement.state_id.name"/></option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                        </t>
+                                        <div class="col-xs-12">
                                             <select disabled="disabled" class="selectpicker form-control">
                                                 <t t-if="bool(announcement.country_id) == False">
                                                     <option value="None" selected="selected"></option>                      
@@ -243,7 +245,8 @@
                                             <label for="quantity">Infinite</label>
                                         </div>
                                         <div class="col-md-7">
-                                            <input id="quantity" type="text" class="form-control" t-att-value="announcement.quantity" placeholder="Quantity" readonly="readonly"/>
+                                            <input id="quantity" type="text" class="form-control" t-esc="announcement.quantity_available" placeholder="Quantity" readonly="readonly"/>
+                                            <input id="available" type="text" class="form-control" placeholder="available" t-att-value="announcement.quantity" readonly="readonly"/>
                                         </div>
                                     </t>
                                     <t t-if="announcement.infinite_qty">
@@ -262,14 +265,15 @@
                                         </select>
                                     </div>
                                 </div>
-
+                                <!--
                                 <div class="form-group">
                                     <label class="col-md-5 control-label" for="available">Available</label>
                                     <div class="col-md-7">
-                                        <!-- TODO: IF EMPTY SHOW NOTHING -->
-                                        <input id="available" type="text" class="form-control" placeholder="available" t-att-value="announcement.quantity_available" readonly="readonly"/>
+
+                                        <input id="available" type="text" class="form-control" placeholder="available" t-att-value="announcement.quantity" readonly="readonly"/>
                                     </div>
                                 </div>
+                                 -->
                             </div>
                             
                             <div class="col-md-3">
