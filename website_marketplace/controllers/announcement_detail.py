@@ -169,6 +169,7 @@ class AnnouncementController(http.Controller):
                 ('zip', 'zip'),
                 ('city', 'city'),
                 ('type', 'type'),
+                ('ref', 'ref'),
             ]
             date_param_list = [
                 ('date_to', 'date_to', 'Wrong date format for date to'),
@@ -1044,6 +1045,7 @@ class AnnouncementController(http.Controller):
             ('date_to', 'date_to'),
             ('state', 'state'),
             ('type', 'type'),
+            ('ref', 'ref'),
         ]
         for param_val in simple:
             val, param = param_val

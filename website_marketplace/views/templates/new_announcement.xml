@@ -148,7 +148,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-xs-7">
-                                                <select name="country_id" class="selectpicker form-control">
+                                                <select name="country_id" class="form-control">
                                                     <option value="">Country</option>
                                                     <t t-foreach="country_dict.keys()" t-as="country_id">
                                                         <option t-att-value='country_id'><t t-esc='country_dict[country_id]'/></option>

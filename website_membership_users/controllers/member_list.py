@@ -107,7 +107,7 @@ class member_list_controller(http.Controller):
 
         params = dict()
         if data.get('search_name'):
-            sql += ' AND a.name ILIKE %(search_name)s'
+            sql += ' AND a.name ILIKE %(search_name)s OR a.ref ILIKE %(search_name)s'
             params.update({'search_name': '%' + data.get('search_name') + '%'})
 
         if data.get('location'):

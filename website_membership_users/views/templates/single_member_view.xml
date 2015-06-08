@@ -8,7 +8,7 @@
                     <div class="col-md-3 mt16">
                         <span t-field="member.image" t-field-options='{"widget": "image", "class": "thumbnail"}'/>
                         <div class="clearfix"></div>
-                        <p class="text-muted mt8" t-field="member.name"/>
+                        <p class="text-muted mt8" t-field="member.ref"/>
                     </div>
                     
                     <div class="col-md-9 col-sm-9 mt16">
