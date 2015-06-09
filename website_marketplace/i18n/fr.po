@@ -340,6 +340,11 @@ msgstr "Quantité ?"
 
 #. module: website_marketplace
 #: view:website:website_marketplace.view_announcement
+msgid "available on"
+msgstr "disponible sur"
+
+#. module: website_marketplace
+#: view:website:website_marketplace.view_announcement
 msgid "Re-open"
 msgstr "Ré-ouvrir"
 

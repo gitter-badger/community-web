@@ -245,7 +245,7 @@
                                             <label for="quantity">Infinite</label>
                                         </div>
                                         <div class="col-md-7">
-                                            <span class="btn btn-primary"><span t-esc="announcement.quantity_available"/> Available on <span t-esc="announcement.quantity"/>
+                                            <span class="btn btn-primary"><span t-esc="int(announcement.quantity_available)"/> available on <span t-esc="int(announcement.quantity)"/>
                                              </span>
                                         </div>
                                     </t>

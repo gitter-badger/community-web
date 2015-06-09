@@ -319,6 +319,12 @@ msgid "Quantity"
 msgstr ""
 
 #. module: website_marketplace
+#: view:website:website_marketplace.view_announcement
+msgid "available on"
+msgstr ""
+
+
+#. module: website_marketplace
 #: code:addons/website_marketplace/controllers/announcement_detail.py:276
 #, python-format
 msgid "Quantity cannot be 0.0"
