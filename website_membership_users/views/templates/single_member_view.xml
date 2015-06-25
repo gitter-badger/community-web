@@ -16,13 +16,10 @@
                             <h3 class="mt0"><a t-attf-href="/marketplace/profile/#{member.id}" t-field="member.name"/></h3>
                             <p><span class="badge badge-info" t-field="member.city"/></p>
                             <h5 t-field="member.comment"/>
-                        </div>
-                        <div class="col-md-4">
                             <t t-foreach="member.member_lines" t-as="line">
-                                <span class="badge badge-warning pull-right mt4" t-field="line.membership_id.name"/>
+                             <span class="badge badge-warning pull-left mt4" t-field="line.membership_id.name"/>
                             </t>
                         </div>
-                        
                         <div class="col-md-6 three-line">
                             <t t-foreach="member.skill_tag_ids" t-as="tag">
                                 <span class="label label-primary" t-field="tag.name"/>
@@ -31,7 +28,9 @@
                                 <span class="label label-primary" t-field="category.name"/>
                             </t>
                         </div>
-                        <div class="col-md-6">
+
+                        <!--  member balance sheet -->
+                        <div class="col-md-6 pull-top">
                             <table class="table">
                                 <thead>
                                     <tr>
