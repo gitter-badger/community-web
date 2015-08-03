@@ -1,5 +1,7 @@
 # community-web is Wezer front-end dedicated to odoo cooperation tools
 
+[![Join the chat at https://gitter.im/Valeureux/community-web](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Valeureux/community-web?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 WeZer is an open source cooperation platform built to make businesses and communities more effective. It is a product of Valeureux, “The
 Factory of Common goods Wealth Actualisation Tools”, which is studying, designing and teaching for many years about cooperation and sharing value.
 
